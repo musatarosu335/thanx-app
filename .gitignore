@@ -1,0 +1,7 @@
+# bundleファイル
+public/*
+!public/index.html
+!public/index.css
+
+# node_modules
+node_modules/
