@@ -1,6 +1,6 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
-// import 'firebase/auth';
+import 'firebase/auth';
 import React from 'react';
 import ReactDom from 'react-dom';
 import { Provider } from 'react-redux';
