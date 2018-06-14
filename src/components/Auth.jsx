@@ -8,7 +8,7 @@ export default class Auth extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      uid: null,
+      uid: 111,
       // loading: true,
       loading: false,
     };
