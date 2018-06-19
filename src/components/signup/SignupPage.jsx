@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import SignupButton from './SignupButton';
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -60,6 +62,11 @@ export default class SignupPage extends React.Component {
           type="password"
           value={this.state.password}
           onChange={e => this.handleChangePassword(e.target.value)}
+        />
+        <SignupButton
+          userName={this.state.userName}
+          email={this.state.email}
+          password={this.state.password}
         />
       </Container>
     );
