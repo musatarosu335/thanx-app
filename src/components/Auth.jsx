@@ -8,15 +8,12 @@ export default class Auth extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      uid: 111,
-      // loading: true,
-      loading: false,
+      uid: null,
+      loading: true,
     };
   }
 
   componentDidMount() {
-    console.log('Auth...');
-    /*
     this.removeListener = firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.setState({
@@ -29,7 +26,6 @@ export default class Auth extends React.Component {
         });
       }
     });
-    */
   }
 
   render() {
