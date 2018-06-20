@@ -1,3 +1,4 @@
+import firebase from 'firebase/app';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
@@ -13,7 +14,19 @@ export default class CheckPair extends React.Component {
   }
 
   componentDidMount() {
-    console.log('Check...');
+    const { currentUser } = firebase.auth();
+    const db = firebase.firestore();
+    const docRef = db.collection('users').doc(currentUser.uid);
+
+    docRef.get().then((doc) => {
+      if (doc.pair) {
+        console.log('true!');
+      } else {
+        console.log('false...');
+      }
+    }).catch((err) => {
+      console.log(err);
+    });
   }
 
   render() {
