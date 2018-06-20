@@ -4,7 +4,9 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Button = styled.button`
-  background-color: #ddd;
+  padding: 8px;
+  margin: 20px;
+  background-color: #777;
 `;
 
 export default class LoginButton extends React.Component {

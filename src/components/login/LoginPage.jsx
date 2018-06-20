@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import LoginButton from './LoginButton';
+import LogoutButton from './LogoutButton';
 
 const Container = styled.div`
   display: flex;
@@ -17,7 +18,6 @@ export default class LoginPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      userName: '',
       email: '',
       password: '',
     };
@@ -55,6 +55,7 @@ export default class LoginPage extends React.Component {
           email={this.state.email}
           password={this.state.password}
         />
+        <LogoutButton />
       </Container>
     );
   }
