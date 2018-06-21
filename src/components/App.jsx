@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Auth from './Auth';
 import CheckPair from './CheckPair';
+import MainPage from './main/MainPage';
 // import SignupPage from './signup/SignupPage';
 import LoginPage from './login/LoginPage';
 import SerchPage from './serch/SerchPage';
@@ -12,6 +13,7 @@ import SamplePage from './sample/SamplePage';
 const App = () => (
   <Router>
     <Switch>
+      <Route exact path="/" component={MainPage} />
       {/*
         <Route exact path="/signup" component={SignupPage} />
       */}
