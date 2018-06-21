@@ -7,9 +7,8 @@ export default class CheckPair extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      uid: null,
-      // loading: true,
-      loading: false,
+      pair: false,
+      loading: true,
     };
   }
 
@@ -19,13 +18,18 @@ export default class CheckPair extends React.Component {
     const docRef = db.collection('users').doc(currentUser.uid);
 
     docRef.get().then((doc) => {
-      if (doc.pair) {
-        console.log('true!');
+      if (doc.data().pair) {
+        this.setState({
+          pair: true,
+          loading: false,
+        });
       } else {
-        console.log('false...');
+        this.setState({
+          loading: false,
+        });
       }
     }).catch((err) => {
-      console.log(err);
+      console.log(err); // eslint-disable-line
     });
   }
 
@@ -36,7 +40,7 @@ export default class CheckPair extends React.Component {
       );
     }
 
-    if (!this.state.uid) {
+    if (!this.state.pair) {
       return (
         <Redirect to="/serch" />
       );
