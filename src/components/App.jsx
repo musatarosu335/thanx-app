@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Auth from './Auth';
 import CheckPair from './CheckPair';
+import Header from './common/Header';
 import MainPage from './main/MainPage';
 // import SignupPage from './signup/SignupPage';
 import LoginPage from './login/LoginPage';
@@ -12,24 +13,27 @@ import SamplePage from './sample/SamplePage';
 
 const App = () => (
   <Router>
-    <Switch>
-      <Route exact path="/" component={MainPage} />
-      {/*
-        <Route exact path="/signup" component={SignupPage} />
-      */}
-      <Route exact path="/login" component={LoginPage} />
-      <Auth>
-        <Switch>
-          <Route exact path="/serch" component={SerchPage} />
-          <CheckPair>
-            <Switch>
-              <Route exact path="/mypage" component={Mypage} />
-              <Route exact path="/sample" component={SamplePage} />
-            </Switch>
-          </CheckPair>
-        </Switch>
-      </Auth>
-    </Switch>
+    <div>
+      <Header />
+      <Switch>
+        <Route exact path="/" component={MainPage} />
+        {/*
+          <Route exact path="/signup" component={SignupPage} />
+        */}
+        <Route exact path="/login" component={LoginPage} />
+        <Auth>
+          <Switch>
+            <Route exact path="/serch" component={SerchPage} />
+            <CheckPair>
+              <Switch>
+                <Route exact path="/mypage" component={Mypage} />
+                <Route exact path="/sample" component={SamplePage} />
+              </Switch>
+            </CheckPair>
+          </Switch>
+        </Auth>
+      </Switch>
+    </div>
   </Router>
 );
 
