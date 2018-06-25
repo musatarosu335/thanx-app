@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import FollowerNotification from './FollowerNotification';
 import SearchForm from '../../containers/search/SearchForm';
+import SearchResult from './SearchResults';
 
 const Container = styled.div`
   display: flex;
@@ -19,6 +20,7 @@ const SearchPage = () => (
     <p>説明をここに記述</p>
     <FollowerNotification />
     <SearchForm />
+    <SearchResult />
   </Container>
 );
 
