@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 
+import SearchButton from './SearchButton';
+
 const styles = theme => ({
   container: {
     display: 'flex',
-    flexDirection: 'column',
     alignItems: 'center',
     flexWrap: 'wrap',
     marginBottom: 20,
@@ -14,7 +15,8 @@ const styles = theme => ({
   textField: {
     marginLeft: theme.spacing.unit,
     marginRight: theme.spacing.unit,
-    width: '90%',
+    // width: '100%',
+    flex: 5,
   },
 });
 
@@ -22,12 +24,13 @@ const SearchForm = ({ searchWord, changeSearchWord, classes }) => (
   <form className={classes.container} noValidate autoComplete="off">
     <TextField
       id="searchWord"
-      label="SearchWord"
+      label="ユーザー名で検索"
       className={classes.textField}
       value={searchWord}
       onChange={e => changeSearchWord(e.target.value)}
       margin="normal"
     />
+    <SearchButton />
   </form>
 );
 

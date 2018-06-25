@@ -16,6 +16,7 @@ const SearchPage = () => (
   // pairがいる場合はMyPageへリダイレクトさせる必要あり
   <Container>
     <h1>Search Page</h1>
+    <p>説明をここに記述</p>
     <FollowerNotification />
     <SearchForm />
   </Container>
