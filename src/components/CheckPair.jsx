@@ -42,7 +42,7 @@ export default class CheckPair extends React.Component {
 
     if (!this.state.pair) {
       return (
-        <Redirect to="/serch" />
+        <Redirect to="/search" />
       );
     }
 

@@ -7,7 +7,7 @@ import Header from './common/Header';
 import MainPage from './main/MainPage';
 // import SignupPage from './signup/SignupPage';
 import LoginPage from './login/LoginPage';
-import SerchPage from './serch/SerchPage';
+import SearchPage from './search/SearchPage';
 import Mypage from './mypage/Mypage';
 import SamplePage from './sample/SamplePage';
 
@@ -23,7 +23,7 @@ const App = () => (
         <Route exact path="/login" component={LoginPage} />
         <Auth>
           <Switch>
-            <Route exact path="/serch" component={SerchPage} />
+            <Route exact path="/search" component={SearchPage} />
             <CheckPair>
               <Switch>
                 <Route exact path="/mypage" component={Mypage} />

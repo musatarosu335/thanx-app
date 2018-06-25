@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import FollowerNotification from './FollowerNotification';
+import SearchForm from '../../containers/search/SearchForm';
 
 const Container = styled.div`
   display: flex;
@@ -11,12 +12,13 @@ const Container = styled.div`
   padding: 0 10px;
 `;
 
-const SerchPage = () => (
+const SearchPage = () => (
   // pairがいる場合はMyPageへリダイレクトさせる必要あり
   <Container>
+    <h1>Search Page</h1>
     <FollowerNotification />
-    <div>SerchPage</div>
+    <SearchForm />
   </Container>
 );
 
-export default SerchPage;
+export default SearchPage;

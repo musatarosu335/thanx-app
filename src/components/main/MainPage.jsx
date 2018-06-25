@@ -1,8 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const MainPage = () => (
   <div>
-    Main Page
+    <p>Main Page</p>
+    <Link to="/mypage">MyPage</Link>
   </div>
 );
 
