@@ -4,6 +4,8 @@ import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
+import RequestButton from './RequestButton';
+
 const styles = theme => ({
   root: theme.mixins.gutters({
     paddingTop: 16,
@@ -11,13 +13,21 @@ const styles = theme => ({
     marginTop: theme.spacing.unit * 3,
     display: 'flex',
   }),
+  userName: {
+    flex: 3,
+    textAlign: 'center',
+  },
+  button: {
+    flex: 2,
+  },
 });
 
 const SearchResultUser = ({ user, classes }) => (
   <Paper className={classes.root} elevation={4}>
-    <Typography component="p">
+    <Typography component="div" className={classes.userName}>
       {user}
     </Typography>
+    <RequestButton className={classes.button} />
   </Paper>
 );
 
