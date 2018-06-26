@@ -2,14 +2,26 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import SearchResultUser from './SearchResultUser';
+
 const Container = styled.div`
-  border: 1px solid;
   width: 100%;
+  background-color: #F5F5F5;
+`;
+
+const Caption = styled.div`
+  margin: 10px;
 `;
 
 const SearchResults = ({ searchResultUsers }) => (
   <Container>
-    {searchResultUsers[0]}
+    <Caption>検索結果</Caption>
+    {searchResultUsers.map((user, i) => (
+      <SearchResultUser
+        key={i}  // eslint-disable-line
+        user={user}
+      />
+    ))}
   </Container>
 );
 

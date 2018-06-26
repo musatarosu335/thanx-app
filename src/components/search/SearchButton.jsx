@@ -24,6 +24,8 @@ const SearchButton = ({ searchWord, searchAndSetUses, classes }) => (
 );
 
 SearchButton.propTypes = {
+  searchWord: PropTypes.string.isRequired,
+  searchAndSetUses: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired,
 };
 
