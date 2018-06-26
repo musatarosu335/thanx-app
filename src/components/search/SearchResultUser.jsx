@@ -17,6 +17,10 @@ const styles = theme => ({
     flex: 3,
     textAlign: 'center',
   },
+  message: {
+    fontSize: '0.7rem',
+    color: '#90949D',
+  },
   button: {
     flex: 2,
   },
@@ -26,6 +30,8 @@ const SearchResultUser = ({ user, classes }) => (
   <Paper className={classes.root} elevation={4}>
     <Typography component="div" className={classes.userName}>
       {user}
+      <br />
+      <div className={classes.message}>This is message!</div>
     </Typography>
     <RequestButton className={classes.button} />
   </Paper>
