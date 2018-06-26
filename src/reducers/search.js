@@ -1,5 +1,6 @@
 const initialState = {
   searchWord: '',
+  searchResultUsers: [],
 };
 
 const serchReducer = (state = initialState, action) => {
@@ -8,6 +9,11 @@ const serchReducer = (state = initialState, action) => {
       return ({
         ...state,
         searchWord: action.payload.searchWord,
+      });
+    case 'SET_SEARCH_RESULT_USERS':
+      return ({
+        ...state,
+        searchResultUsers: action.payload.searchResultUsers,
       });
     default:
       return state;

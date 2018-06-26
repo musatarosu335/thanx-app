@@ -5,9 +5,9 @@ export const changeSearchWord = searchWord => ({
   },
 });
 
-export const dammy = () => ({
-  type: 'DAMMY',
+export const setSearchResultUsers = searchResultUsers => ({
+  type: 'SET_SEARCH_RESULT_USERS',
   payload: {
-    dammy: null,
+    searchResultUsers,
   },
 });
