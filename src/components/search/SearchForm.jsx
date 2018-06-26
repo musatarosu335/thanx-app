@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 
-import SearchButton from './SearchButton';
+import SearchButton from '../../containers/search/SearchButton';
 
 const styles = theme => ({
   container: {
@@ -30,7 +30,7 @@ const SearchForm = ({ searchWord, changeSearchWord, classes }) => (
       onChange={e => changeSearchWord(e.target.value)}
       margin="normal"
     />
-    <SearchButton />
+    <SearchButton searchWord={searchWord} />
   </form>
 );
 

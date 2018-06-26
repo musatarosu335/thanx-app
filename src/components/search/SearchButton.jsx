@@ -13,8 +13,12 @@ const styles = () => ({
   },
 });
 
-const SearchButton = ({ classes }) => (
-  <IconButton className={classes.button} aria-label="Delete">
+const SearchButton = ({ searchWord, searchAndSetUses, classes }) => (
+  <IconButton
+    className={classes.button}
+    aria-label="Delete"
+    onClick={() => searchAndSetUses(searchWord)}
+  >
     <SearchIcon />
   </IconButton>
 );

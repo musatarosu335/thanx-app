@@ -15,7 +15,7 @@ const mapDispatchToProps = dispatch => ({
     db.collection('users').where('user_name', '==', searchWord).get()
       .then((snapshot) => {
         snapshot.forEach((doc) => {
-          serchedUsers.push(doc.data().name);
+          serchedUsers.push(doc.data().user_name);
         });
         return serchedUsers;
       })

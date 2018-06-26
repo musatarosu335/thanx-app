@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import FollowerNotification from './FollowerNotification';
 import SearchForm from '../../containers/search/SearchForm';
-import SearchResult from './SearchResults';
+import SearchResult from '../../containers/search/SearchResults';
 
 const Container = styled.div`
   display: flex;
