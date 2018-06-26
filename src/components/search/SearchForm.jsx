@@ -8,7 +8,7 @@ import SearchButton from '../../containers/search/SearchButton';
 const styles = theme => ({
   container: {
     display: 'flex',
-    alignItems: 'center',
+    alignItems: 'baseLine',
     flexWrap: 'wrap',
     marginBottom: 20,
   },

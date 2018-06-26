@@ -1,26 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
+import Button from '@material-ui/core/Button';
 
-const styles = () => ({
+const styles = theme => ({
   button: {
-    flex: 1,
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'flex-end',
+    flex: 2,
+  },
+  rightIcon: {
+    marginLeft: theme.spacing.unit,
   },
 });
 
 const SearchButton = ({ searchWord, searchAndSetUses, classes }) => (
-  <IconButton
+  <Button
+    variant="contained"
+    color="primary"
     className={classes.button}
-    aria-label="Delete"
     onClick={() => searchAndSetUses(searchWord)}
   >
-    <SearchIcon />
-  </IconButton>
+    検索
+    <SearchIcon className={classes.rightIcon} />
+  </Button>
 );
 
 SearchButton.propTypes = {
