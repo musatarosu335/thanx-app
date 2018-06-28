@@ -11,3 +11,10 @@ export const setSearchResultUsers = searchResultUsers => ({
     searchResultUsers,
   },
 });
+
+export const setFollowingUser = followingUser => ({
+  type: 'SET_FOLLOWING_USER',
+  payload: {
+    followingUser,
+  },
+});
