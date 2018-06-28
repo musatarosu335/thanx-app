@@ -15,7 +15,12 @@ const mapDispatchToProps = dispatch => ({
     db.collection('users').where('user_name', '==', searchWord).get()
       .then((snapshot) => {
         snapshot.forEach((doc) => {
-          serchedUsers.push(doc.data().user_name);
+          // uidを含めたオブジェクトを作成
+          const userData = {
+            ...doc.data(),
+            uid: doc.id,
+          };
+          serchedUsers.push(userData);
         });
         return serchedUsers;
       })

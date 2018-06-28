@@ -29,7 +29,7 @@ const styles = theme => ({
 const SearchResultUser = ({ user, classes }) => (
   <Paper className={classes.root} elevation={4}>
     <Typography component="div" className={classes.userName}>
-      {user}
+      {user.user_name}
       <br />
       <div className={classes.message}>This is message!</div>
     </Typography>
@@ -38,7 +38,7 @@ const SearchResultUser = ({ user, classes }) => (
 );
 
 SearchResultUser.propTypes = {
-  user: PropTypes.string.isRequired,
+  user: PropTypes.object.isRequired,
   classes: PropTypes.object.isRequired,
 };
 
