@@ -4,7 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
-import RequestButton from './RequestButton';
+import RequestButton from '../../containers/search/RequestButton';
 
 const styles = theme => ({
   root: theme.mixins.gutters({
@@ -33,7 +33,10 @@ const SearchResultUser = ({ user, classes }) => (
       <br />
       <div className={classes.message}>This is message!</div>
     </Typography>
-    <RequestButton className={classes.button} />
+    <RequestButton
+      className={classes.button}
+      uid={user.uid}
+    />
   </Paper>
 );
 

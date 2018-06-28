@@ -12,13 +12,19 @@ const styles = () => ({
   },
 });
 
-const RequestButton = ({ classes }) => (
-  <Button variant="contained" className={classes.button}>
+const RequestButton = ({ uid, writeFollowingAndFollowerUser, classes }) => (
+  <Button
+    variant="contained"
+    className={classes.button}
+    onClick={() => writeFollowingAndFollowerUser(uid)}
+  >
     リクエスト
   </Button>
 );
 
 RequestButton.propTypes = {
+  uid: PropTypes.string.isRequired,
+  writeFollowingAndFollowerUser: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired,
 };
 
