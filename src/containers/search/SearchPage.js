@@ -13,10 +13,9 @@ const mapDispatchToProps = dispatch => ({
     const { currentUser } = firebase.auth();
     const followingUserRef = db.collection(`users/${currentUser.uid}/following`);
 
-    followingUserRef.get().then((snapshot) => {
+    followingUserRef.limit(1).get().then((snapshot) => { // 取得する値は1つのみ
       snapshot.forEach((doc) => {
         if (doc.exists) {
-          // dispatch(setFollowingUser(doc.id));
           db.collection('users').doc(doc.id).get().then((user) => {
             const followingUser = {
               ...user.data(),

@@ -26,10 +26,10 @@ const styles = theme => ({
   },
 });
 
-const ApprovalPendingUser = ({ classes }) => (
+const ApprovalPendingUser = ({ followingUser, classes }) => (
   <Paper className={classes.root} elevation={4}>
     <Typography component="div" className={classes.userName}>
-      ユーザ名
+      {followingUser.user_name}
       <br />
       <div className={classes.message}>This is message!</div>
     </Typography>
@@ -40,7 +40,7 @@ const ApprovalPendingUser = ({ classes }) => (
 );
 
 ApprovalPendingUser.propTypes = {
-  // user: PropTypes.object.isRequired,
+  followingUser: PropTypes.object.isRequired,
   classes: PropTypes.object.isRequired,
 };
 
