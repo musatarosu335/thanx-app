@@ -6,6 +6,7 @@ import { lifecycle } from 'recompose';
 import FollowerNotification from './FollowerNotification';
 import SearchForm from '../../containers/search/SearchForm';
 import SearchResult from '../../containers/search/SearchResults';
+import ApprovalPending from './ApprovalPending';
 
 const Container = styled.div`
   display: flex;
@@ -22,7 +23,7 @@ const SearchPage = ({ followingUser }) => (
     <p>説明をここに記述</p>
     <FollowerNotification />
     <SearchForm />
-    {followingUser ? <div>following</div> : <SearchResult />}
+    {followingUser ? <ApprovalPending /> : <SearchResult />}
   </Container>
 );
 
