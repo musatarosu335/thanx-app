@@ -12,19 +12,20 @@ const styles = () => ({
   },
 });
 
-const CancelFollowButton = ({ cancelFollowing, classes }) => (
+const CancelFollowButton = ({ followingUser, deleteFollowingAndFollowerUser, classes }) => (
   <Button
     variant="contained"
     color="secondary"
     className={classes.button}
-    onClick={() => cancelFollowing()}
+    onClick={() => deleteFollowingAndFollowerUser(followingUser.uid)}
   >
     キャンセル
   </Button>
 );
 
 CancelFollowButton.propTypes = {
-  cancelFollowing: PropTypes.func.isRequired,
+  followingUser: PropTypes.object.isRequired,
+  deleteFollowingAndFollowerUser: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired,
 };
 
