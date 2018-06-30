@@ -4,7 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
-import CancelFollowButton from './CancelFollowButton';
+import CancelFollowButton from '../../containers/search/CancelFollowButton';
 
 const styles = theme => ({
   root: theme.mixins.gutters({
