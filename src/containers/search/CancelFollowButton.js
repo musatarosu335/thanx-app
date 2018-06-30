@@ -1,7 +1,7 @@
 import firebase from 'firebase/app';
 import { connect } from 'react-redux';
 import CancelFollowButton from '../../components/search/CancelFollowButton';
-import { setFollowingUser } from '../../actions/search';
+import { setFollowingUser, setSearchResultUsers } from '../../actions/search';
 
 const mapStateToProps = ({ search }) => ({
   followingUser: search.followingUser,
@@ -9,8 +9,10 @@ const mapStateToProps = ({ search }) => ({
 
 const mapDispatchToProps = dispatch => ({
   deleteFollowingAndFollowerUser(uid) {
-    // まず空のオブジェクトをセットしてリセット
+    // 空のオブジェクトをセットしてリセット
     dispatch(setFollowingUser({}));
+    // 空の配列をセットしてSearchResultUsersの表示をリセット
+    dispatch(setSearchResultUsers([]));
 
     // Firestoreからfollowing, followerを削除
     const db = firebase.firestore();

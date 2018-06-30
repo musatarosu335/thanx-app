@@ -1,7 +1,7 @@
 import firebase from 'firebase/app';
 import { connect } from 'react-redux';
 import SearchButton from '../../components/search/SearchButton';
-import { setSearchResultUsers } from '../../actions/search';
+import { setSearchResultUsers, changeSearchWord } from '../../actions/search';
 
 const mapStateToProps = ({ search }) => ({
   searchResultUsers: search.searchResultUsers,
@@ -26,6 +26,7 @@ const mapDispatchToProps = dispatch => ({
       })
       .then((result) => {
         dispatch(setSearchResultUsers(result));
+        dispatch(changeSearchWord('')); // 検索フォームをリセット
       })
       .catch((err) => {
         console.log(err); // eslint-disable-line
