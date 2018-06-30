@@ -20,15 +20,22 @@ const styles = theme => ({
   },
 });
 
-const SearchForm = ({ searchWord, changeSearchWord, classes }) => (
+const SearchForm = ({
+  searchWord,
+  followingUser,
+  changeSearchWord,
+  classes,
+}) => (
   <form className={classes.container} noValidate autoComplete="off">
     <TextField
       id="searchWord"
-      label="ユーザー名で検索"
+      label={Object.keys(followingUser).length ? '検索できません' : 'ユーザー名で検索'}
+      error={Object.keys(followingUser).length ? true : null}
+      margin="normal"
       className={classes.textField}
       value={searchWord}
+      disabled={Object.keys(followingUser).length ? true : null}
       onChange={e => changeSearchWord(e.target.value)}
-      margin="normal"
     />
     <SearchButton searchWord={searchWord} />
   </form>
@@ -36,6 +43,7 @@ const SearchForm = ({ searchWord, changeSearchWord, classes }) => (
 
 SearchForm.propTypes = {
   searchWord: PropTypes.string.isRequired,
+  followingUser: PropTypes.object.isRequired,
   changeSearchWord: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired,
 };

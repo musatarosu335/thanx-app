@@ -4,6 +4,7 @@ import { changeSearchWord } from '../../actions/search';
 
 const mapStateToProps = ({ search }) => ({
   searchWord: search.searchWord,
+  followingUser: search.followingUser,
 });
 
 const mapDispatchToProps = dispatch => ({
