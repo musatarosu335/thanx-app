@@ -7,7 +7,7 @@ import Header from './common/Header';
 import MainPage from './main/MainPage';
 // import SignupPage from './signup/SignupPage';
 import LoginPage from './login/LoginPage';
-import SearchPage from './search/SearchPage';
+import SearchPage from '../containers/search/SearchPage';
 import Mypage from './mypage/Mypage';
 import SamplePage from './sample/SamplePage';
 

@@ -15,11 +15,11 @@ const mapDispatchToProps = dispatch => ({
 
     followingUserRef.get().then((snapshot) => {
       snapshot.forEach((doc) => {
-        if (doc) {
+        if (doc.exists) {
           dispatch(setFollowingUser(doc.id));
+        } else {
+          console.log('No such document!'); // eslint-disable-line
         }
-      }).catch((err) => {
-        console.log(err); // eslint-disable-line
       });
     });
   },

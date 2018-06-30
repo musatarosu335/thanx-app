@@ -1,6 +1,7 @@
-import firebase from 'firebase/app';
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { lifecycle } from 'recompose';
 
 import FollowerNotification from './FollowerNotification';
 import SearchForm from '../../containers/search/SearchForm';
@@ -14,42 +15,23 @@ const Container = styled.div`
   padding: 0 10px;
 `;
 
-export default class SearchPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      followingUser: null,
-    };
-  }
+const SearchPage = ({ followingUser }) => (
+  // pairがいる場合はMyPageへリダイレクトさせる必要あり
+  <Container>
+    <h1>Search Page</h1>
+    <p>説明をここに記述</p>
+    <FollowerNotification />
+    <SearchForm />
+    {followingUser ? <div>following</div> : <SearchResult />}
+  </Container>
+);
 
-  componentWillMount() {
-    const db = firebase.firestore();
-    const { currentUser } = firebase.auth();
-    const followingUserRef = db.collection(`users/${currentUser.uid}/following`);
+SearchPage.propTypes = {
+  followingUser: PropTypes.string.isRequired,
+};
 
-    followingUserRef.get().then((snapshot) => {
-      snapshot.forEach((doc) => {
-        if (doc.exists) {
-          this.setState({
-            followingUser: doc.id,
-          });
-        } else {
-          console.log('No such document!'); // eslint-disable-line
-        }
-      });
-    });
-  }
-
-  render() {
-    return (
-      // pairがいる場合はMyPageへリダイレクトさせる必要あり
-      <Container>
-        <h1>Search Page</h1>
-        <p>説明をここに記述</p>
-        <FollowerNotification />
-        <SearchForm />
-        {this.state.followingUser ? <div>following</div> : <SearchResult />}
-      </Container>
-    );
-  }
-}
+export default lifecycle({
+  componentDidMount() {
+    this.props.fetchAndSetFollowingUser();
+  },
+})(SearchPage);
