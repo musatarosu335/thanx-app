@@ -23,12 +23,15 @@ const SearchPage = ({ followingUser }) => (
     <p>説明をここに記述</p>
     <FollowerNotification />
     <SearchForm />
-    {followingUser ? <ApprovalPending /> : <SearchResult />}
+    {Object.keys(followingUser).length
+      ? <ApprovalPending />
+      : <SearchResult />
+    }
   </Container>
 );
 
 SearchPage.propTypes = {
-  followingUser: PropTypes.string.isRequired,
+  followingUser: PropTypes.object.isRequired,
 };
 
 export default lifecycle({

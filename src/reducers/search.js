@@ -1,7 +1,7 @@
 const initialState = {
   searchWord: '',
   searchResultUsers: [],
-  followingUser: '', // uid
+  followingUser: {}, // uid
 };
 
 const serchReducer = (state = initialState, action) => {

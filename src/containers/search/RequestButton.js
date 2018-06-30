@@ -16,7 +16,16 @@ const mapDispatchToProps = dispatch => ({
       uid,
       follow_time: new Date(),
     }).then(() => {
-      dispatch(setFollowingUser(uid));
+      // dispatch(setFollowingUser(uid));
+      db.collection('users').doc(uid).get().then((user) => {
+        if (user.exists) {
+          const followingUser = {
+            ...user.data(),
+            uid: user.id,
+          };
+          dispatch(setFollowingUser(followingUser));
+        }
+      });
       console.log('Written Following User'); // eslint-disable-line no-console
     }).catch((err) => {
       console.log(err); // eslint-disable-line no-console
