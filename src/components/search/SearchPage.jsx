@@ -36,6 +36,9 @@ SearchPage.propTypes = {
 
 export default lifecycle({
   componentDidMount() {
+    // フォローしているユーザの取得
     this.props.fetchAndSetFollowingUser();
+    // フォロワー一覧の取得
+    this.props.fetchAndSetFollower();
   },
 })(SearchPage);

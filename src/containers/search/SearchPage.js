@@ -1,13 +1,14 @@
 import firebase from 'firebase/app';
 import { connect } from 'react-redux';
 import SearchPage from '../../components/search/SearchPage';
-import { setFollowingUser } from '../../actions/search';
+import { setFollowingUser, setFollower } from '../../actions/search';
 
 const mapStateToProps = ({ search }) => ({
   followingUser: search.followingUser,
 });
 
 const mapDispatchToProps = dispatch => ({
+  // フォローしているユーザの取得
   fetchAndSetFollowingUser() {
     const db = firebase.firestore();
     const { currentUser } = firebase.auth();
@@ -23,10 +24,31 @@ const mapDispatchToProps = dispatch => ({
             };
             dispatch(setFollowingUser(followingUser));
           });
-        } else {
-          console.log('No such document!'); // eslint-disable-line
         }
       });
+    });
+  },
+
+  // フォロワー一覧の取得
+  fetchAndSetFollower() {
+    const db = firebase.firestore();
+    const { currentUser } = firebase.auth();
+    const followerRef = db.collection(`users/${currentUser.uid}/follower`);
+    const follower = [];
+
+    followerRef.get().then((snapshot) => {
+      snapshot.forEach((doc) => {
+        if (doc.exists) {
+          db.collection('users').doc(doc.id).get().then((user) => {
+            const eachFollower = {
+              ...user.data(),
+              uid: user.id,
+            };
+            follower.push(eachFollower);
+          });
+        }
+      });
+      dispatch(setFollower(follower));
     });
   },
 });

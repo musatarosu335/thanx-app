@@ -18,3 +18,10 @@ export const setFollowingUser = followingUser => ({
     followingUser,
   },
 });
+
+export const setFollower = follower => ({
+  type: 'SET_FOLLOWER',
+  payload: {
+    follower,
+  },
+});

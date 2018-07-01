@@ -1,7 +1,8 @@
 const initialState = {
   searchWord: '',
   searchResultUsers: [],
-  followingUser: {}, // uid
+  followingUser: {},
+  follower: {},
 };
 
 const serchReducer = (state = initialState, action) => {
@@ -20,6 +21,11 @@ const serchReducer = (state = initialState, action) => {
       return ({
         ...state,
         followingUser: action.payload.followingUser,
+      });
+    case 'SET_FOLLOWER':
+      return ({
+        ...state,
+        follower: action.payload.follower,
       });
     default:
       return state;
