@@ -10,17 +10,21 @@ const mapStateToProps = ({ search }) => ({
 const mapDispatchToProps = dispatch => ({
   searchAndSetUses(searchWord) {
     const db = firebase.firestore();
+    const { currentUser } = firebase.auth();
     const serchedUsers = [];
 
     db.collection('users').where('user_name', '==', searchWord).get()
       .then((snapshot) => {
         snapshot.forEach((doc) => {
-          // uidを含めたオブジェクトを作成
-          const userData = {
-            ...doc.data(),
-            uid: doc.id,
-          };
-          serchedUsers.push(userData);
+          // 検索対象が自分自身の場合は検索結果に表示させない
+          if (currentUser.uid !== doc.id) {
+            // uidを含めたオブジェクトを作成
+            const userData = {
+              ...doc.data(),
+              uid: doc.id,
+            };
+            serchedUsers.push(userData);
+          }
         });
         return serchedUsers;
       })
