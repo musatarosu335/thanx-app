@@ -12,19 +12,19 @@ const styles = () => ({
   },
 });
 
-const ApprovalButton = ({ classes }) => (
+const ApprovalButton = ({ uid, createPair, classes }) => (
   <Button
     variant="contained"
     className={classes.button}
-    // onClick={() => writeFollowingAndFollowerUser(uid)}
+    onClick={() => createPair(uid)}
   >
     承認
   </Button>
 );
 
 ApprovalButton.propTypes = {
-  // uid: PropTypes.string.isRequired,
-  // writeFollowingAndFollowerUser: PropTypes.func.isRequired,
+  uid: PropTypes.string.isRequired,
+  createPair: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired,
 };
 

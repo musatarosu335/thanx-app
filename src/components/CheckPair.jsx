@@ -7,7 +7,7 @@ export default class CheckPair extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      pair: false,
+      pair: '',
       loading: true,
     };
   }

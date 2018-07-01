@@ -1,30 +1,33 @@
 import firebase from 'firebase/app';
 import { connect } from 'react-redux';
-import RequestButton from '../../components/search/RequestButton';
-import { setFollowingUser } from '../../actions/search';
+import ApprovalButton from '../../components/search/ApprovalButton';
+import { setPairUid } from '../../actions/search';
 
 const mapDispatchToProps = dispatch => ({
-  // フォローした・されたユーザーへの書き込み処理
-  writeFollowingAndFollowerUser(uid) {
+  // pairの状態を変更
+  // following, followerの書き込み処理と
+  createPair(uid) {
     const db = firebase.firestore();
     const { currentUser } = firebase.auth();
+    const currentUserRef = db.collection('users').doc(currentUser.uid);
     const followingUserRef = db.collection(`users/${currentUser.uid}/following`).doc(uid);
     const followerUserRef = db.collection(`users/${uid}/follower`).doc(currentUser.uid);
+
+    // pairの書き込み(uid)
+    currentUserRef.set({
+      pair: uid,
+    }, { merge: true }).then(() => {
+      dispatch(setPairUid(uid));
+      console.log('Write Pair'); // eslint-disable-line no-console
+    }).catch((err) => {
+      console.log(err); // eslint-disable-line no-console
+    });
 
     // followingの書き込み処理
     followingUserRef.set({
       uid,
       follow_time: new Date(),
     }).then(() => {
-      db.collection('users').doc(uid).get().then((user) => {
-        if (user.exists) {
-          const followingUser = {
-            ...user.data(),
-            uid: user.id,
-          };
-          dispatch(setFollowingUser(followingUser));
-        }
-      });
       console.log('Written Following User'); // eslint-disable-line no-console
     }).catch((err) => {
       console.log(err); // eslint-disable-line no-console
@@ -42,4 +45,4 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
-export default connect(null, mapDispatchToProps)(RequestButton);
+export default connect(null, mapDispatchToProps)(ApprovalButton);

@@ -18,7 +18,7 @@ export default class SignupButton extends React.Component {
         db.collection('users').doc(user.user.uid).set({
           user_name: userName,
           email,
-          pair: false,
+          pair: '',
           create_on: new Date(),
         })
           .then(() => {
