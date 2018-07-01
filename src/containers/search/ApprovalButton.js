@@ -10,14 +10,24 @@ const mapDispatchToProps = dispatch => ({
     const db = firebase.firestore();
     const { currentUser } = firebase.auth();
     const currentUserRef = db.collection('users').doc(currentUser.uid);
+    const followerRef = db.collection('users').doc(uid);
     const followingUserRef = db.collection(`users/${currentUser.uid}/following`).doc(uid);
     const followerUserRef = db.collection(`users/${uid}/follower`).doc(currentUser.uid);
 
-    // pairの書き込み(uid)
+    // pair(uid)の書き込み(承認した側)
     currentUserRef.set({
       pair: uid,
     }, { merge: true }).then(() => {
       dispatch(setPairUid(uid));
+      console.log('Write Pair'); // eslint-disable-line no-console
+    }).catch((err) => {
+      console.log(err); // eslint-disable-line no-console
+    });
+
+    // pair(uid)の書き込み(承認された側)
+    followerRef.set({
+      pair: currentUser.uid,
+    }, { merge: true }).then(() => {
       console.log('Write Pair'); // eslint-disable-line no-console
     }).catch((err) => {
       console.log(err); // eslint-disable-line no-console
