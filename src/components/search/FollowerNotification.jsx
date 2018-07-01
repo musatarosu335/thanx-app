@@ -1,36 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
+import styled from 'styled-components';
 
-import NormalButton from '../common/NormalButton';
+import Follower from './Follower';
 
-const styles = theme => ({
-  root: theme.mixins.gutters({
-    paddingTop: 16,
-    paddingBottom: 16,
-    marginTop: theme.spacing.unit * 3,
-    textAlign: 'center',
-  }),
-});
+const Container = styled.div`
+  width: 100%;
+  background-color: #F5F5F5;
+`;
 
-const FollowerNotification = (props) => {
-  const { classes } = props;
-  return (
-    <div>
-      <Paper className={classes.root} elevation={4}>
-        <Typography variant="headline">
-          HOGEさんからリクエストがきています
-        </Typography>
-        <NormalButton>承認</NormalButton>
-      </Paper>
-    </div>
-  );
-};
+const Caption = styled.div`
+  margin: 10px;
+`;
+
+const FollowerNotification = ({ follower }) => (
+  <Container>
+    <Caption>リクエスト一覧</Caption>
+    {follower.map((user, i) => (
+      <Follower
+        key={i}  // eslint-disable-line
+        user={user}
+      />
+    ))}
+  </Container>
+);
 
 FollowerNotification.propTypes = {
-  classes: PropTypes.object.isRequired,
+  follower: PropTypes.array.isRequired,
 };
 
-export default withStyles(styles)(FollowerNotification);
+export default FollowerNotification;

@@ -2,7 +2,7 @@ const initialState = {
   searchWord: '',
   searchResultUsers: [],
   followingUser: {},
-  follower: {},
+  follower: [],
 };
 
 const serchReducer = (state = initialState, action) => {

@@ -45,10 +45,10 @@ const mapDispatchToProps = dispatch => ({
               uid: user.id,
             };
             follower.push(eachFollower);
+            dispatch(setFollower(follower));
           });
         }
       });
-      dispatch(setFollower(follower));
     });
   },
 });

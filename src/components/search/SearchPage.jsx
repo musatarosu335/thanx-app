@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { lifecycle } from 'recompose';
 
-import FollowerNotification from './FollowerNotification';
+import FollowerNotification from '../../containers/search/FollowerNotification';
 import SearchForm from '../../containers/search/SearchForm';
 import SearchResult from '../../containers/search/SearchResults';
 import ApprovalPending from './ApprovalPending';
