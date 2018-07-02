@@ -3,6 +3,10 @@ import { connect } from 'react-redux';
 import RequestButton from '../../components/search/RequestButton';
 import { setFollowingUser } from '../../actions/search';
 
+const mapStateToProps = ({ search }) => ({
+  follower: search.follower,
+});
+
 const mapDispatchToProps = dispatch => ({
   // フォローした・されたユーザーへの書き込み処理
   writeFollowingAndFollowerUser(uid) {
@@ -42,4 +46,4 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
-export default connect(null, mapDispatchToProps)(RequestButton);
+export default connect(mapStateToProps, mapDispatchToProps)(RequestButton);

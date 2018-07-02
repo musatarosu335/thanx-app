@@ -20,7 +20,7 @@ const Caption = styled.div`
 const ApprovalPending = () => (
   <Container>
     <Caption>承認待ちユーザ</Caption>
-    <Description>ユーザかの承認を待ちましょう</Description>
+    <Description>ユーザからの承認を待ちましょう</Description>
     <ApprovalPendingUser />
   </Container>
 );
