@@ -14,7 +14,10 @@ const Description = styled.div`
 `;
 
 const Caption = styled.div`
-  margin: 10px;
+  padding: 0.25em 0.5em;
+  color: #494949;
+  background: transparent;
+  border-left: solid 5px #7db4e6;
 `;
 
 const ApprovalPending = () => (
