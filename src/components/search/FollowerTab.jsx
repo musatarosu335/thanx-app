@@ -5,7 +5,8 @@ import FollowerNotification from '../../containers/search/FollowerNotification';
 
 
 const Container = styled.div`
-  padding: 24px;
+  width: 90%;
+  margin-top: 24px;
 `;
 
 const FollowerTab = () => (

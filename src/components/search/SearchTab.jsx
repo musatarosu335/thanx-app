@@ -7,7 +7,7 @@ import SearchResult from '../../containers/search/SearchResults';
 import ApprovalPending from './ApprovalPending';
 
 const Container = styled.div`
-  padding: 24px;
+  width: 90%;
 `;
 
 const SearchTab = ({ followingUser }) => (
