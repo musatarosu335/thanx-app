@@ -8,10 +8,15 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 
+import SearchTab from '../../containers/search/SearchTab';
+import FollowerTab from './FollowerTab';
+
+/*
 import FollowerNotification from '../../containers/search/FollowerNotification';
 import SearchForm from '../../containers/search/SearchForm';
 import SearchResult from '../../containers/search/SearchResults';
 import ApprovalPending from './ApprovalPending';
+*/
 
 const Container = styled.div`
   display: flex;
@@ -77,6 +82,8 @@ class SearchPage extends React.Component {
 
     return (
       <Container>
+        <h1>Search Page</h1>
+        <p>説明をここに記述</p>
         <Tabs
           value={this.state.value}
           onChange={this.handleChange}
@@ -84,13 +91,11 @@ class SearchPage extends React.Component {
           textColor="primary"
           centered
         >
-          <Tab label="Item One" />
-          <Tab label="Item Two" />
-          <Tab label="Item Three" />
+          <Tab label="ペアを見つける" />
+          <Tab label="リクエスト一覧" />
         </Tabs>
-        {value === 0 && <TabContainer>Item One</TabContainer>}
-        {value === 1 && <TabContainer>Item Two</TabContainer>}
-        {value === 2 && <TabContainer>Item Three</TabContainer>}
+        {value === 0 && <SearchTab />}
+        {value === 1 && <FollowerTab />}
       </Container>
     );
   }
