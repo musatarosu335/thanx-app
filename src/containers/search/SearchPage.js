@@ -3,10 +3,6 @@ import { connect } from 'react-redux';
 import SearchPage from '../../components/search/SearchPage';
 import { setFollowingUser, setFollower } from '../../actions/search';
 
-const mapStateToProps = ({ search }) => ({
-  followingUser: search.followingUser,
-});
-
 const mapDispatchToProps = dispatch => ({
   // フォローしているユーザの取得
   fetchAndSetFollowingUser() {
@@ -53,4 +49,4 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchPage);
+export default connect(null, mapDispatchToProps)(SearchPage);
