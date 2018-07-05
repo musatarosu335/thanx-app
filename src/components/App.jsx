@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Auth from './Auth';
 import CheckPair from './CheckPair';
+import NoMatch from './NoMatch';
 import Header from './common/Header';
 import MainPage from './main/MainPage';
 // import SignupPage from './signup/SignupPage';
@@ -21,6 +22,7 @@ const App = () => (
           <Route exact path="/signup" component={SignupPage} />
         */}
         <Route exact path="/login" component={LoginPage} />
+        <Route component={NoMatch} />
         <Auth>
           <Switch>
             <Route exact path="/search" component={SearchPage} />
