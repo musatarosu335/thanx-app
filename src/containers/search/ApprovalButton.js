@@ -4,8 +4,8 @@ import ApprovalButton from '../../components/search/ApprovalButton';
 import { setPairUid } from '../../actions/search';
 
 const mapDispatchToProps = dispatch => ({
-  // pairの状態を変更
-  // following, followerの書き込み処理と
+  // pairの状態を変更と,
+  // following, followerの書き込み処理
   createPair(uid) {
     const db = firebase.firestore();
     const { currentUser } = firebase.auth();

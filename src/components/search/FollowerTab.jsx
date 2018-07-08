@@ -5,7 +5,6 @@ import FollowerNotification from '../../containers/search/FollowerNotification';
 
 
 const Container = styled.div`
-  width: 90%;
   margin-top: 24px;
 `;
 
