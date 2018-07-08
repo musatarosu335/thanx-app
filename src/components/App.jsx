@@ -22,7 +22,6 @@ const App = () => (
           <Route exact path="/signup" component={SignupPage} />
         */}
         <Route exact path="/login" component={LoginPage} />
-        <Route component={NoMatch} />
         <Auth>
           <Switch>
             <Route exact path="/search" component={SearchPage} />
@@ -30,6 +29,7 @@ const App = () => (
               <Switch>
                 <Route exact path="/mypage" component={Mypage} />
                 <Route exact path="/sample" component={SamplePage} />
+                <Route component={NoMatch} />
               </Switch>
             </CheckPair>
           </Switch>
