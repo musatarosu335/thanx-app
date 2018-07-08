@@ -9,7 +9,7 @@ import MainPage from './main/MainPage';
 // import SignupPage from './signup/SignupPage';
 import LoginPage from './login/LoginPage';
 import SearchPage from '../containers/search/SearchPage';
-import Mypage from './mypage/Mypage';
+import MyPage from './mypage/MyPage';
 import SamplePage from './sample/SamplePage';
 
 const App = () => (
@@ -27,7 +27,7 @@ const App = () => (
             <Route exact path="/search" component={SearchPage} />
             <CheckPair>
               <Switch>
-                <Route exact path="/mypage" component={Mypage} />
+                <Route exact path="/mypage" component={MyPage} />
                 <Route exact path="/sample" component={SamplePage} />
                 <Route component={NoMatch} />
               </Switch>

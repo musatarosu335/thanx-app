@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Mypage = () => (
+const MyPage = () => (
   <div>
-    Mypage
+    MyPage
   </div>
 );
 
-export default Mypage;
+export default MyPage;
