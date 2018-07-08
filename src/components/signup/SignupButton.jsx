@@ -19,6 +19,7 @@ export default class SignupButton extends React.Component {
           user_name: userName,
           email,
           pair: '',
+          point: 0,
           create_on: new Date(),
         })
           .then(() => {
