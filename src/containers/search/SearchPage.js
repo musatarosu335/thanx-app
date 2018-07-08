@@ -1,9 +1,27 @@
 import firebase from 'firebase/app';
 import { connect } from 'react-redux';
 import SearchPage from '../../components/search/SearchPage';
-import { setFollowingUser, setFollower } from '../../actions/search';
+import { setFollowingUser, setFollower, setPairUid } from '../../actions/search';
+
+const mapStateToProps = ({ search }) => ({
+  pairUid: search.pairUid,
+});
 
 const mapDispatchToProps = dispatch => ({
+  // ペアの有無をチェック(ペアのUIDを取得)
+  checkPair() {
+    const db = firebase.firestore();
+    const { currentUser } = firebase.auth();
+    const currentUserRef = db.collection('users').doc(currentUser.uid);
+
+    currentUserRef.get().then((doc) => {
+      const { pair } = doc.data();
+      if (pair) {
+        dispatch(setPairUid(pair));
+      }
+    });
+  },
+
   // フォローしているユーザの取得
   fetchAndSetFollowingUser() {
     const db = firebase.firestore();
@@ -49,4 +67,4 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
-export default connect(null, mapDispatchToProps)(SearchPage);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchPage);
