@@ -18,6 +18,9 @@ const mapDispatchToProps = dispatch => ({
       const { pair } = doc.data();
       if (pair) {
         dispatch(setPairUid(pair));
+      } else {
+        // 「pair: ''」ならば'no'をセットしてloading画面を解除
+        dispatch(setPairUid('no'));
       }
     });
   },

@@ -15,17 +15,21 @@ const Container = styled.div`
 `;
 
 const SearchPage = ({ pairUid }) => {
-  if (pairUid) {
-    return <Redirect to="/mypage" />;
+  let isPairComponent;
+
+  if (pairUid === 'no') {
+    isPairComponent = <TabContainer />;
+  } else if (!pairUid) {
+    isPairComponent = <p>Now loading...</p>;
+  } else {
+    isPairComponent = <Redirect to="/mypage" />;
   }
 
-  // /mypageへのリダイレクト前に表示させたくない
   return (
     <Container>
       <h1>Search Page</h1>
       <p>説明をここに記述</p>
-      <p>{pairUid}</p>
-      <TabContainer />
+      {isPairComponent}
     </Container>
   );
 };
