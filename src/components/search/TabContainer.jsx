@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import { withStyles } from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -11,6 +12,10 @@ const styles = {
     flexGrow: 1,
   },
 };
+
+const Container = styled.div`
+  width: 100%;
+`;
 
 class SearchPage extends React.Component {
   constructor(props) {
@@ -29,7 +34,7 @@ class SearchPage extends React.Component {
     const { value } = this.state;
 
     return (
-      <div>
+      <Container>
         <Tabs
           value={this.state.value}
           onChange={this.handleChange}
@@ -42,7 +47,7 @@ class SearchPage extends React.Component {
         </Tabs>
         {value === 0 && <SearchTab />}
         {value === 1 && <FollowerTab />}
-      </div>
+      </Container>
     );
   }
 }
