@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
@@ -16,11 +17,19 @@ const styles = theme => ({
   },
 });
 
+const PanelHeader = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
 const MyPanel = ({ classes }) => (
   <Paper className={classes.root} elevation={1}>
-    <UserAvatar />
+    <PanelHeader>
+      <UserAvatar />
+      <div>name</div>
+    </PanelHeader>
     <Typography component="p">
-      Paper can be used to build surface or other elements for your application.
+      24pt
     </Typography>
   </Paper>
 );
