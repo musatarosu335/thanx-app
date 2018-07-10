@@ -7,7 +7,7 @@ import PeopleIcon from '@material-ui/icons/People';
 import SendIcon from '@material-ui/icons/Send';
 import GiftIcon from '@material-ui/icons/CardGiftcard';
 
-import UserTab from './UserTab';
+import UserInfoTab from './UserInfoTab';
 import SendTab from './SendTab';
 import ExchangeTab from './ExchangeTab';
 
@@ -42,7 +42,7 @@ export default class MyPage extends React.Component {
             <Tab icon={<GiftIcon />} label="ポイント交換" />
           </Tabs>
         </Paper>
-        {value === 0 && <UserTab />}
+        {value === 0 && <UserInfoTab />}
         {value === 1 && <SendTab />}
         {value === 2 && <ExchangeTab />}
       </div>
