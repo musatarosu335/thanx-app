@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import MyPanel from './MyPanel';
-import PartnerPanel from './PartnerPanel';
+import UserPanel from './UserPanel';
 
 const Container = styled.div`
   width: 100%;
@@ -12,8 +11,8 @@ const Container = styled.div`
 
 const UserInfoTab = () => (
   <Container>
-    <MyPanel />
-    <PartnerPanel />
+    <UserPanel />
+    <UserPanel />
   </Container>
 );
 

@@ -23,7 +23,7 @@ const PanelHeader = styled.div`
   align-items: center;
 `;
 
-const MyPanel = ({ classes }) => (
+const UserPanel = ({ classes }) => (
   <Paper className={classes.root} elevation={1}>
     <PanelHeader>
       <UserAvatar />
@@ -35,8 +35,8 @@ const MyPanel = ({ classes }) => (
   </Paper>
 );
 
-MyPanel.propTypes = {
+UserPanel.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(MyPanel);
+export default withStyles(styles)(UserPanel);
