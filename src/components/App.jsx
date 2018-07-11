@@ -9,7 +9,7 @@ import MainPage from './main/MainPage';
 // import SignupPage from './signup/SignupPage';
 import LoginPage from './login/LoginPage';
 import SearchPage from '../containers/search/SearchPage';
-import MyPage from './mypage/MyPage';
+import MyPage from '../containers/mypage/MyPage';
 import SamplePage from './sample/SamplePage';
 
 const App = () => (

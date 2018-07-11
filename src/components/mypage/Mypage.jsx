@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 // import styled from 'styled-components';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
@@ -18,6 +19,10 @@ export default class MyPage extends React.Component {
       value: 0,
     };
     this.handleChange = this.handleChange.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.fetchUserAndPartnerInfo();
   }
 
   handleChange(event, value) {
@@ -49,3 +54,7 @@ export default class MyPage extends React.Component {
     );
   }
 }
+
+MyPage.propTypes = {
+  fetchUserAndPartnerInfo: PropTypes.func.isRequired,
+};
