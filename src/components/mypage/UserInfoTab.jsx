@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import UserPanel from './UserPanel';
@@ -9,11 +10,16 @@ const Container = styled.div`
   justify-content: space-around;
 `;
 
-const UserInfoTab = () => (
+const UserInfoTab = ({ userInfo, partnerInfo }) => (
   <Container>
-    <UserPanel />
-    <UserPanel />
+    <UserPanel basicUserInfo={userInfo} />
+    <UserPanel basicUserInfo={partnerInfo} />
   </Container>
 );
+
+UserInfoTab.propTypes = {
+  userInfo: PropTypes.object.isRequired,
+  partnerInfo: PropTypes.object.isRequired,
+};
 
 export default UserInfoTab;

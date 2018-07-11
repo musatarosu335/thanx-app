@@ -8,7 +8,7 @@ import PeopleIcon from '@material-ui/icons/People';
 import SendIcon from '@material-ui/icons/Send';
 import GiftIcon from '@material-ui/icons/CardGiftcard';
 
-import UserInfoTab from './UserInfoTab';
+import UserInfoTab from '../../containers/mypage/UserInfoTab';
 import SendTab from './SendTab';
 import ExchangeTab from './ExchangeTab';
 

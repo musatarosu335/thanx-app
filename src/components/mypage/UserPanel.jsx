@@ -23,19 +23,25 @@ const PanelHeader = styled.div`
   align-items: center;
 `;
 
-const UserPanel = ({ classes }) => (
-  <Paper className={classes.root} elevation={1}>
-    <PanelHeader>
-      <UserAvatar />
-      <div>name</div>
-    </PanelHeader>
-    <Typography component="p">
-      24pt
-    </Typography>
-  </Paper>
-);
+const UserPanel = ({ basicUserInfo, classes }) => {
+  const userName = basicUserInfo.user_name;
+  const { point } = basicUserInfo;
+
+  return (
+    <Paper className={classes.root} elevation={1}>
+      <PanelHeader>
+        <UserAvatar />
+        <div>{userName}</div>
+      </PanelHeader>
+      <Typography component="p">
+        {point}pt
+      </Typography>
+    </Paper>
+  );
+};
 
 UserPanel.propTypes = {
+  basicUserInfo: PropTypes.object.isRequired,
   classes: PropTypes.object.isRequired,
 };
 
