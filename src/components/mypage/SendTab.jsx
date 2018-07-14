@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import PointArea from './PointArea';
 import PointSlider from './PointSlider';
 
 const Container = styled.div`
@@ -12,6 +13,7 @@ const Container = styled.div`
 
 const SendTab = () => (
   <Container>
+    <PointArea />
     <PointSlider />
   </Container>
 );
