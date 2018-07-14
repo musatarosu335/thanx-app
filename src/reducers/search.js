@@ -28,7 +28,7 @@ const serchReducer = (state = initialState, action) => {
         ...state,
         follower: action.payload.follower,
       });
-    case 'SET_PAIR_UID':
+    case 'SET_PARTNER_UID':
       return ({
         ...state,
         partnerUid: action.payload.partnerUid,
