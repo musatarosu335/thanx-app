@@ -22,7 +22,8 @@ export default class MyPage extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchUserAndPartnerInfo();
+    this.props.fetchAndSetUserInfo();
+    this.props.fetchAndSetPartnerInfo();
   }
 
   handleChange(event, value) {
@@ -56,5 +57,6 @@ export default class MyPage extends React.Component {
 }
 
 MyPage.propTypes = {
-  fetchUserAndPartnerInfo: PropTypes.func.isRequired,
+  fetchAndSetUserInfo: PropTypes.func.isRequired,
+  fetchAndSetPartnerInfo: PropTypes.func.isRequired,
 };
