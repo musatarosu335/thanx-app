@@ -12,11 +12,11 @@ const styles = () => ({
   },
 });
 
-const ApprovalButton = ({ uid, createPair, classes }) => (
+const ApprovalButton = ({ uid, createPartner, classes }) => (
   <Button
     variant="contained"
     className={classes.button}
-    onClick={() => createPair(uid)}
+    onClick={() => createPartner(uid)}
   >
     承認
   </Button>
@@ -24,7 +24,7 @@ const ApprovalButton = ({ uid, createPair, classes }) => (
 
 ApprovalButton.propTypes = {
   uid: PropTypes.string.isRequired,
-  createPair: PropTypes.func.isRequired,
+  createPartner: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired,
 };
 

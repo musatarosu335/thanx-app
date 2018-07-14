@@ -3,11 +3,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 
-export default class CheckPair extends React.Component {
+export default class CheckPartner extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      pair: '',
+      partner: '',
       loading: true,
     };
   }
@@ -18,9 +18,9 @@ export default class CheckPair extends React.Component {
     const docRef = db.collection('users').doc(currentUser.uid);
 
     docRef.get().then((doc) => {
-      if (doc.data().pair) {
+      if (doc.data().partner) {
         this.setState({
-          pair: true,
+          partner: true,
           loading: false,
         });
       } else {
@@ -40,7 +40,7 @@ export default class CheckPair extends React.Component {
       );
     }
 
-    if (!this.state.pair) {
+    if (!this.state.partner) {
       return (
         <Redirect to="/search" />
       );
@@ -52,6 +52,6 @@ export default class CheckPair extends React.Component {
   }
 }
 
-CheckPair.propTypes = {
+CheckPartner.propTypes = {
   children: PropTypes.object.isRequired,
 };

@@ -14,34 +14,34 @@ const Container = styled.div`
   padding: 0 10px;
 `;
 
-const SearchPage = ({ pairUid }) => {
-  let isPairComponent;
+const SearchPage = ({ partnerUid }) => {
+  let isPartnerComponent;
 
-  if (pairUid === 'no') {
-    isPairComponent = <TabContainer />;
-  } else if (!pairUid) {
-    isPairComponent = <p>Now loading...</p>;
+  if (partnerUid === 'no') {
+    isPartnerComponent = <TabContainer />;
+  } else if (!partnerUid) {
+    isPartnerComponent = <p>Now loading...</p>;
   } else {
-    isPairComponent = <Redirect to="/mypage" />;
+    isPartnerComponent = <Redirect to="/mypage" />;
   }
 
   return (
     <Container>
       <h1>Search Page</h1>
       <p>説明をここに記述</p>
-      {isPairComponent}
+      {isPartnerComponent}
     </Container>
   );
 };
 
 SearchPage.propTypes = {
-  pairUid: PropTypes.string.isRequired,
+  partnerUid: PropTypes.string.isRequired,
 };
 
 export default lifecycle({
   componentDidMount() {
     // ペアのUIDを取得
-    this.props.checkPair();
+    this.props.checkPartner();
     // フォローしているユーザの取得
     this.props.fetchAndSetFollowingUser(); // PropTypes.func.isRequired
     // フォロワー一覧の取得

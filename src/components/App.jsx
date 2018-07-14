@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Auth from './Auth';
-import CheckPair from './CheckPair';
+import CheckPartner from './CheckPartner';
 import NoMatch from './NoMatch';
 import Header from './common/Header';
 import MainPage from './main/MainPage';
@@ -25,13 +25,13 @@ const App = () => (
         <Auth>
           <Switch>
             <Route exact path="/search" component={SearchPage} />
-            <CheckPair>
+            <CheckPartner>
               <Switch>
                 <Route exact path="/mypage" component={MyPage} />
                 <Route exact path="/sample" component={SamplePage} />
                 <Route component={NoMatch} />
               </Switch>
-            </CheckPair>
+            </CheckPartner>
           </Switch>
         </Auth>
       </Switch>

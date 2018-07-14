@@ -20,8 +20,8 @@ const mapDispatchToProps = dispatch => ({
       dispatch(setUserInfo(user.data()));
 
       // 一度ログインユーザのパートナーのuidを取得してから
-      const pairUid = user.data().pair;
-      const partnerRef = db.collection('users').doc(pairUid);
+      const partnerUid = user.data().partner;
+      const partnerRef = db.collection('users').doc(partnerUid);
       // パートナーの情報を取得
       partnerRef.get().then((partner) => {
         dispatch(setPartnerInfo(partner.data()));

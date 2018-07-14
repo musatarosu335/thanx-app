@@ -26,9 +26,9 @@ export const setFollower = follower => ({
   },
 });
 
-export const setPairUid = pairUid => ({
+export const setPartnerUid = partnerUid => ({
   type: 'SET_PAIR_UID',
   payload: {
-    pairUid,
+    partnerUid,
   },
 });

@@ -1,26 +1,26 @@
 import firebase from 'firebase/app';
 import { connect } from 'react-redux';
 import SearchPage from '../../components/search/SearchPage';
-import { setFollowingUser, setFollower, setPairUid } from '../../actions/search';
+import { setFollowingUser, setFollower, setPartnerUid } from '../../actions/search';
 
 const mapStateToProps = ({ search }) => ({
-  pairUid: search.pairUid,
+  partnerUid: search.partnerUid,
 });
 
 const mapDispatchToProps = dispatch => ({
   // ペアの有無をチェック(ペアのUIDを取得)
-  checkPair() {
+  checkPartner() {
     const db = firebase.firestore();
     const { currentUser } = firebase.auth();
     const currentUserRef = db.collection('users').doc(currentUser.uid);
 
     currentUserRef.get().then((doc) => {
-      const { pair } = doc.data();
-      if (pair) {
-        dispatch(setPairUid(pair));
+      const { partner } = doc.data();
+      if (partner) {
+        dispatch(setPartnerUid(partner));
       } else {
-        // 「pair: ''」ならば'no'をセットしてloading画面を解除
-        dispatch(setPairUid('no'));
+        // 「partner: ''」ならば'no'をセットしてloading画面を解除
+        dispatch(setPartnerUid('no'));
       }
     });
   },

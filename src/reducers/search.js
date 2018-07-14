@@ -3,7 +3,7 @@ const initialState = {
   searchResultUsers: [],
   followingUser: {},
   follower: [],
-  pairUid: '',
+  partnerUid: '',
 };
 
 const serchReducer = (state = initialState, action) => {
@@ -31,7 +31,7 @@ const serchReducer = (state = initialState, action) => {
     case 'SET_PAIR_UID':
       return ({
         ...state,
-        pairUid: action.payload.pairUid,
+        partnerUid: action.payload.partnerUid,
       });
     default:
       return state;
