@@ -14,10 +14,19 @@ const Container = styled.textarea`
   resize: vertical;
 `;
 
-const MessageArea = () => (
-  <Container placeholder="感謝の気持ちを伝えましょう">
-    test
+const MessageArea = ({ message, changeMessage }) => (
+  <Container
+    placeholder="感謝の気持ちを伝えましょう"
+    value={message}
+    onChange={e => changeMessage(e.target.value)}
+  >
+    {message}
   </Container>
 );
+
+MessageArea.propTypes = {
+  message: PropTypes.string.isRequired,
+  changeMessage: PropTypes.func.isRequired,
+};
 
 export default MessageArea;

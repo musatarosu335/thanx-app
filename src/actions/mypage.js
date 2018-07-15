@@ -17,6 +17,13 @@ const setPartnerInfo = partnerInfo => ({
   },
 });
 
+export const changeMessage = message => ({
+  type: 'CHANGE_MESSAGE',
+  payload: {
+    message,
+  },
+});
+
 /*
 Next関数
 */

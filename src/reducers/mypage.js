@@ -1,6 +1,7 @@
 const initialState = {
   userInfo: {},
   partnerInfo: {},
+  message: '',
 };
 
 const mypageReducer = (state = initialState, action) => {
@@ -14,6 +15,11 @@ const mypageReducer = (state = initialState, action) => {
       return ({
         ...state,
         partnerInfo: action.payload.partnerInfo,
+      });
+    case 'CHANGE_MESSAGE':
+      return ({
+        ...state,
+        message: action.payload.message,
       });
     default:
       return state;

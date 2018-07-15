@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import PointArea from './PointArea';
 import PointSlider from './PointSlider';
-import MessageArea from './MessageArea';
+import MessageArea from '../../containers/mypage/MessageArea';
 import SendPointButton from './SendPointButton';
 
 const Container = styled.div`
