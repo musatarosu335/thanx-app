@@ -17,6 +17,13 @@ const setPartnerInfo = partnerInfo => ({
   },
 });
 
+export const changePoint = point => ({
+  type: 'CHANGE_POINT',
+  payload: {
+    point,
+  },
+});
+
 export const changeMessage = message => ({
   type: 'CHANGE_MESSAGE',
   payload: {

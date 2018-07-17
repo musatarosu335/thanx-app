@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import PointArea from './PointArea';
-import PointSlider from './PointSlider';
+import PointSlider from '../../containers/mypage/PointSlider';
 import MessageArea from '../../containers/mypage/MessageArea';
 import SendPointButton from './SendPointButton';
 

@@ -1,6 +1,7 @@
 const initialState = {
   userInfo: {},
   partnerInfo: {},
+  point: 0,
   message: '',
 };
 
@@ -15,6 +16,11 @@ const mypageReducer = (state = initialState, action) => {
       return ({
         ...state,
         partnerInfo: action.payload.partnerInfo,
+      });
+    case 'CHANGE_POINT':
+      return ({
+        ...state,
+        point: action.payload.point,
       });
     case 'CHANGE_MESSAGE':
       return ({

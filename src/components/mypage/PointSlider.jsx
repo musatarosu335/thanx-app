@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
@@ -9,11 +10,11 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-const PointSlider = () => (
+const PointSlider = ({ point, changePoint }) => (
   <Container>
     <Slider
       step={1}
-      value={0}
+      value={point}
       min={0}
       max={5}
       handleStyle={{
@@ -25,9 +26,14 @@ const PointSlider = () => (
       trackStyle={{ height: 10 }}
       railStyle={{ height: 10 }}
       // style={sliderStyle}
-      // onChange={value => this.props.selectInseam(value)}
+      onChange={value => changePoint(value)}
     />
   </Container>
 );
+
+PointSlider.propTypes = {
+  point: PropTypes.number.isRequired,
+  changePoint: PropTypes.func.isRequired,
+};
 
 export default PointSlider;
