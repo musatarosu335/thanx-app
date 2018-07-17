@@ -13,12 +13,12 @@ const styles = theme => ({
   },
 });
 
-const SendPointButton = ({ classes }) => (
+const SendPointButton = ({ sendPointAndMessage, classes }) => (
   <Button
     variant="contained"
     color="primary"
     className={classes.button}
-    // onClick={() => searchAndSetUses(searchWord)}
+    onClick={() => sendPointAndMessage()}
   >
     ポイントを送る
     <SendIcon className={classes.rightIcon} />
@@ -26,8 +26,7 @@ const SendPointButton = ({ classes }) => (
 );
 
 SendPointButton.propTypes = {
-  // searchWord: PropTypes.string.isRequired,
-  // searchAndSetUses: PropTypes.func.isRequired,
+  sendPointAndMessage: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired,
 };
 

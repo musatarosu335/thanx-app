@@ -59,3 +59,25 @@ export const fetchPartnerInfo = () => (
     });
   }
 );
+
+// ポイントとメッセージをFirestoreに登録
+export const sendPointAndMessage = () => (
+  (dispatch, getState) => {
+    const { partnerInfo, point, message } = getState().mypage;
+    const { partnerUid } = getState().checkPartner;
+    const totalPoint = partnerInfo.point + point;
+    const db = firebase.firestore();
+    const partnerRef = db.collection('users').doc(partnerUid);
+
+    // パートナー側のpointを更新
+    partnerRef.set({
+      point: totalPoint,
+    }, { merge: true }).then(() => {
+      // 表示ポイントとメッセージのリセット
+      dispatch(changePoint(0));
+      dispatch(changeMessage(''));
+    }).catch((err) => {
+      console.log(err); // eslint-disable-line
+    });
+  }
+);
