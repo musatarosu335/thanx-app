@@ -11,10 +11,14 @@ const Container = styled.div`
   font-weight: bold;
 `;
 
-const PointArea = () => (
+const PointArea = ({ point }) => (
   <Container>
-    5pt
+    {point}pt
   </Container>
 );
+
+PointArea.propTypes = {
+  point: PropTypes.number.isRequired,
+};
 
 export default PointArea;
