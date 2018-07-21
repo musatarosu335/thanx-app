@@ -5,6 +5,8 @@ import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
+import ExchangeTicketButton from './ExchangeTicketButton';
+
 const styles = theme => ({
   root: {
     ...theme.mixins.gutters(),
@@ -29,6 +31,10 @@ const Ticket = ({ classes }) => {
       <Typography component="p">
         ここに説明ぶんが入ります
       </Typography>
+      <Typography component="p">
+        10pt
+      </Typography>
+      <ExchangeTicketButton />
     </Paper>
   );
 };
