@@ -12,10 +12,10 @@ const testTicket = ['Ticket1', 'Ticket2', 'Ticket3'];
 
 const TicketList = () => (
   <Container>
-    <Grid container spacing={24}>
+    <Grid container spacing={8}>
       {testTicket.map((ticket, i) => (
         // eslint-disable-next-line
-        <Grid item xs={6} sm={3} key={i}>
+        <Grid item xs={6} sm={4} key={i}>
           <Ticket ticketName={ticket} />
         </Grid>
       ))}

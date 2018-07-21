@@ -12,9 +12,11 @@ const styles = theme => ({
     ...theme.mixins.gutters(),
     paddingTop: theme.spacing.unit,
     paddingBottom: theme.spacing.unit,
-    margin: 5,
-    textAlign: 'center',
-    flex: 1,
+    margin: 2,
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 
@@ -29,7 +31,7 @@ const Ticket = ({ classes }) => {
         マッサージ券
       </PanelHeader>
       <Typography component="p">
-        ここに説明ぶんが入ります
+        ここに説明文が入ります
       </Typography>
       <Typography component="p">
         10pt
