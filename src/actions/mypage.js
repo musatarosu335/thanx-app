@@ -31,6 +31,13 @@ export const changeMessage = message => ({
   },
 });
 
+export const setTicketList = tickets => ({
+  type: 'SET_TICKET_LIST',
+  payload: {
+    tickets,
+  },
+});
+
 /*
 Next関数
 */

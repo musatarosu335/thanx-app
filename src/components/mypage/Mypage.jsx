@@ -24,6 +24,7 @@ export default class MyPage extends React.Component {
   componentDidMount() {
     this.props.fetchAndSetUserInfo();
     this.props.fetchAndSetPartnerInfo();
+    this.props.fetchTicketList();
   }
 
   handleChange(event, value) {
@@ -59,4 +60,5 @@ export default class MyPage extends React.Component {
 MyPage.propTypes = {
   fetchAndSetUserInfo: PropTypes.func.isRequired,
   fetchAndSetPartnerInfo: PropTypes.func.isRequired,
+  fetchTicketList: PropTypes.func.isRequired,
 };

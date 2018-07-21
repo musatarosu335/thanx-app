@@ -27,6 +27,11 @@ const mypageReducer = (state = initialState, action) => {
         ...state,
         message: action.payload.message,
       });
+    case 'SET_TICKET_LIST':
+      return ({
+        ...state,
+        tickets: action.payload.tickets,
+      });
     default:
       return state;
   }

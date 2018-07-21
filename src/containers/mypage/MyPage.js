@@ -1,6 +1,7 @@
+import firebase from 'firebase/app';
 import { connect } from 'react-redux';
 import MyPage from '../../components/mypage/MyPage';
-import { fetchUserInfo, fetchPartnerInfo } from '../../actions/mypage';
+import { fetchUserInfo, fetchPartnerInfo, setTicketList } from '../../actions/mypage';
 
 const mapStateToProps = ({ mypage }) => ({
   userInfo: mypage.userInfo,
@@ -15,6 +16,28 @@ const mapDispatchToProps = dispatch => ({
   // パートナーの基本状の取得とセット
   fetchAndSetPartnerInfo() {
     dispatch(fetchPartnerInfo());
+  },
+  // チケット一覧を取得
+  fetchTicketList() {
+    const db = firebase.firestore();
+    const ticketsRef = db.collection('tickets');
+    const tickets = [];
+
+    ticketsRef.orderBy('point', 'asc').get()
+      .then((querySnapshot) => {
+        let ticket;
+        querySnapshot.forEach((doc) => {
+          ticket = {
+            ...doc.data(),
+            ticketId: doc.id,
+          };
+          tickets.push(ticket);
+        });
+        dispatch(setTicketList(tickets));
+      })
+      .catch((err) => {
+        console.log(err); // eslint-disable-line
+      });
   },
 });
 

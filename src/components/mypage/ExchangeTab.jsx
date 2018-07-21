@@ -9,9 +9,13 @@ const Container = styled.div`
   flex-direction: column;
 `;
 
+const Header = styled.div`
+  text-align: center;
+`;
+
 const ExchangeTab = () => (
   <Container>
-    <div>貯めたポイントをチケットと交換しよう！</div>
+    <Header>貯めたポイントをチケットと交換しよう！</Header>
     <TicketList />
   </Container>
 );
