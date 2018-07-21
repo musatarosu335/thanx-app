@@ -68,6 +68,18 @@ export const sendPointAndMessage = () => (
     const totalPoint = partnerInfo.point + point;
     const db = firebase.firestore();
     const partnerRef = db.collection('users').doc(partnerUid);
+    const pointRef = db.collection(`users/${partnerUid}/point`);
+
+    // 送ったポイントをパートナーのCollectionに追加していく
+    pointRef.add({
+      sent_time: new Date(),
+      point,
+      message,
+    }).then(() => {
+      console.log('Add Point'); // eslint-disable-line
+    }).catch((err) => {
+      console.log(err); // eslint-disable-line
+    });
 
     // パートナー側のpointを更新
     partnerRef.set({
