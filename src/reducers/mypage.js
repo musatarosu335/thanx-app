@@ -3,6 +3,7 @@ const initialState = {
   partnerInfo: {},
   point: 0,
   message: '',
+  tickets: [],
 };
 
 const mypageReducer = (state = initialState, action) => {

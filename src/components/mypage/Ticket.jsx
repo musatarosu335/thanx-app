@@ -24,24 +24,23 @@ const PanelHeader = styled.div`
   font-weight: bold;
 `;
 
-const Ticket = ({ classes }) => {
-  return (
-    <Paper className={classes.root} elevation={1}>
-      <PanelHeader>
-        マッサージ券
-      </PanelHeader>
-      <Typography component="p">
-        ここに説明文が入ります
-      </Typography>
-      <Typography component="p">
-        10pt
-      </Typography>
-      <ExchangeTicketButton />
-    </Paper>
-  );
-};
+const Ticket = ({ ticket, classes }) => (
+  <Paper className={classes.root} elevation={1}>
+    <PanelHeader>
+      {ticket.ticket_name}
+    </PanelHeader>
+    <Typography component="p">
+      {ticket.description}
+    </Typography>
+    <Typography component="p">
+      {ticket.point}pt
+    </Typography>
+    <ExchangeTicketButton />
+  </Paper>
+);
 
 Ticket.propTypes = {
+  ticket: PropTypes.object.isRequired,
   classes: PropTypes.object.isRequired,
 };
 

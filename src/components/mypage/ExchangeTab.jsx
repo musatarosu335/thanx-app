@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import TicketList from './TicketList';
+import TicketList from '../../containers/mypage/TicketList';
 
 const Container = styled.div`
   width: 100%;
