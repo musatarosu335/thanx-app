@@ -40,11 +40,11 @@ const TicketDate = styled.div`
   color: #999999;
 `;
 
-const ReceivedTicket = ({ classes }) => (
+const ReceivedTicket = ({ receivedTicket, classes }) => (
   <Paper className={classes.root} elevation={1}>
     <TicketLeft>
       <TicketName>
-        チケット名
+        {receivedTicket.ticket_name}
       </TicketName>
       <TicketDate>
         2018/06/07
@@ -57,6 +57,7 @@ const ReceivedTicket = ({ classes }) => (
 );
 
 ReceivedTicket.propTypes = {
+  receivedTicket: PropTypes.object.isRequired,
   classes: PropTypes.object.isRequired,
 };
 

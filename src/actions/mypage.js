@@ -38,6 +38,13 @@ export const setTicketList = tickets => ({
   },
 });
 
+export const setReceivedTickets = receivedTickets => ({
+  type: 'SET_RECEIVED_TICKETS',
+  payload: {
+    receivedTickets,
+  },
+});
+
 /*
 Next関数
 */
