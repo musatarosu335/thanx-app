@@ -4,9 +4,8 @@ import styled from 'styled-components';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 
-const styles = theme => ({
+const styles = () => ({
   root: {
-    ...theme.mixins.gutters(),
     margin: 8,
     display: 'flex',
   },
@@ -31,6 +30,7 @@ const TicketRight = styled.div`
 const TicketName = styled.div`
   font-weight: bold;
   flex: 1;
+  text-align: center;
 `;
 
 const TicketDate = styled.div`
