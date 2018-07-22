@@ -9,18 +9,26 @@ const styles = theme => ({
   },
 });
 
-const ExchangeTicketButton = ({ classes }) => (
+const ExchangeTicketButton = ({
+  ticketId,
+  ticketPoint,
+  userInfo,
+  classes
+}) => (
   <Button
     variant="contained"
     color="primary"
     className={classes.button}
-    // onClick={() => sendPointAndMessage()}
+    onClick={() => console.log(userInfo.point)}
   >
     交換する
   </Button>
 );
 
 ExchangeTicketButton.propTypes = {
+  ticketId: PropTypes.string.isRequired,
+  ticketPoint: PropTypes.number.isRequired,
+  userInfo: PropTypes.object.isRequired,
   classes: PropTypes.object.isRequired,
 };
 

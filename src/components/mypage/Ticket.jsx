@@ -5,7 +5,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
-import ExchangeTicketButton from './ExchangeTicketButton';
+import ExchangeTicketButton from '../../containers/mypage/ExchangeTicketButton';
 
 const styles = theme => ({
   root: {
@@ -35,7 +35,10 @@ const Ticket = ({ ticket, classes }) => (
     <Typography component="p">
       {ticket.point}pt
     </Typography>
-    <ExchangeTicketButton />
+    <ExchangeTicketButton
+      ticketId={ticket.ticketId}
+      ticketPoint={ticket.point}
+    />
   </Paper>
 );
 
