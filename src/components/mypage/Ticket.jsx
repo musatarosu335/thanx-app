@@ -35,10 +35,7 @@ const Ticket = ({ ticket, classes }) => (
     <Typography component="p">
       {ticket.point}pt
     </Typography>
-    <ExchangeTicketButton
-      ticketId={ticket.ticketId}
-      ticketPoint={ticket.point}
-    />
+    <ExchangeTicketButton ticket={ticket} />
   </Paper>
 );
 
