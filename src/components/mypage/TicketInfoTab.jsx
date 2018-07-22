@@ -42,8 +42,8 @@ class TicketInfoTab extends React.Component {
           textColor="primary"
           centered
         >
-          <Tab label="ペアを見つける" />
-          <Tab label="リクエスト一覧" />
+          <Tab label="受け取ったチケット" />
+          <Tab label="送ったチケット" />
         </Tabs>
         {value === 0 && <ReceivedTicketList />}
         {value === 1 && <SentTicketList />}
