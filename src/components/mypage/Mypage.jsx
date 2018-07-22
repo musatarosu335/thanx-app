@@ -45,8 +45,8 @@ export default class MyPage extends React.Component {
             textColor="secondary"
           >
             <Tab icon={<PeopleIcon />} label="ユーザー情報" />
-            <Tab icon={<SendIcon />} label="送る" />
-            <Tab icon={<GiftIcon />} label="ポイント交換" />
+            <Tab icon={<SendIcon />} label="ポイントを送る" />
+            <Tab icon={<GiftIcon />} label="チケット交換" />
           </Tabs>
         </Paper>
         {value === 0 && <UserInfoTab />}
