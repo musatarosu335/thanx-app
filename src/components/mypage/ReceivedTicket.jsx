@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 
+import toDateString from '../../func/toDateString';
+
 const styles = () => ({
   root: {
     margin: 8,
@@ -47,7 +49,7 @@ const ReceivedTicket = ({ receivedTicket, classes }) => (
         {receivedTicket.ticket_name}
       </TicketName>
       <TicketDate>
-        2018/06/07
+        {toDateString(receivedTicket.exchange_time)}
       </TicketDate>
     </TicketLeft>
     <TicketRight>
