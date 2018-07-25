@@ -9,7 +9,7 @@ const styles = theme => ({
   },
 });
 
-const ProcessTicketButton = ({ classes }) => (
+const ExecuteButton = ({ documentId, classes }) => (
   <Button
     variant="contained"
     color="primary"
@@ -19,8 +19,9 @@ const ProcessTicketButton = ({ classes }) => (
   </Button>
 );
 
-ProcessTicketButton.propTypes = {
+ExecuteButton.propTypes = {
+  documentId: PropTypes.string.isRequired,
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(ProcessTicketButton);
+export default withStyles(styles)(ExecuteButton);

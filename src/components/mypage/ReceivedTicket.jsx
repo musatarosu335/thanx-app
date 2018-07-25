@@ -5,7 +5,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 
 import toDateString from '../../func/toDateString';
-import ProcessTicketButton from './ProcessTicketButton';
+import ExecuteButton from './ExecuteButton';
 
 const styles = () => ({
   root: {
@@ -54,7 +54,7 @@ const ReceivedTicket = ({ receivedTicket, classes }) => (
       </TicketDate>
     </TicketLeft>
     <TicketRight>
-      <ProcessTicketButton />
+      <ExecuteButton documentId={receivedTicket.document_id} />
     </TicketRight>
   </Paper>
 );
