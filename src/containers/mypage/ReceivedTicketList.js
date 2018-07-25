@@ -16,7 +16,11 @@ const mapDispatchToProps = dispatch => ({
 
     userReceivedTicketsRef.orderBy('exchange_time', 'desc').onSnapshot((querySnapshot) => {
       querySnapshot.forEach((doc) => {
-        receivedTickets.push(doc.data());
+        const receivedTicket = {
+          ...doc.data(),
+          document_id: doc.id, // collection内から選択したチケットを削除する為に必要
+        };
+        receivedTickets.push(receivedTicket);
       });
       dispatch(setReceivedTickets(receivedTickets));
     });
