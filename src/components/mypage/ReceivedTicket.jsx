@@ -5,7 +5,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 
 import toDateString from '../../func/toDateString';
-import ExecuteButton from './ExecuteButton';
+import ExecuteButton from '../../containers/mypage/ExecuteButton';
 
 const styles = () => ({
   root: {
