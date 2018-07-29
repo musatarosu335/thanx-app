@@ -14,7 +14,23 @@ const styles = {
 };
 
 const Container = styled.div`
+  position: relative;
   width: 100%;
+
+  &::after {
+    position: absolute;
+    font-family: "Font Awesome 5 Free",'Quicksand','Avenir','Arial',sans-serif;
+    content: 'チケット情報';
+    background: #2196F3;
+    color: #fff;
+    left: 4px;
+    bottom: 100%;
+    border-radius: 5px 5px 0 0;
+    padding: 6px 16px 6px;
+    font-size: 0.9rem;
+    line-height: 1;
+    letter-spacing: 0.05rem;
+  }
 `;
 
 class TicketInfoTab extends React.Component {
