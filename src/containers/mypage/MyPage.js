@@ -1,6 +1,6 @@
 import firebase from 'firebase/app';
 import { connect } from 'react-redux';
-import Mypage from '../../components/mypage/Mypage';
+import MyPage from '../../components/mypage/MyPage';
 import { fetchUserInfo, fetchPartnerInfo, setTicketList, setReceivedTickets } from '../../actions/mypage';
 
 const mapStateToProps = ({ mypage }) => ({
@@ -59,4 +59,4 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Mypage);
+export default connect(mapStateToProps, mapDispatchToProps)(MyPage);
