@@ -45,6 +45,13 @@ export const setReceivedTickets = receivedTickets => ({
   },
 });
 
+const setSentTickets = sentTickets => ({
+  type: 'SET_SENT_TICKETS',
+  payload: {
+    sentTickets,
+  },
+});
+
 /*
 Next関数
 */
@@ -104,6 +111,23 @@ export const sendPointAndMessage = () => (
       dispatch(changeMessage(''));
     }).catch((err) => {
       console.log(err); // eslint-disable-line
+    });
+  }
+);
+
+// 送ったチケット一覧の取得とリッスン
+export const fetchSentTickets = () => (
+  (dispatch, getState) => {
+    const { partnerUid } = getState().checkPartner;
+    const db = firebase.firestore();
+    const sentTicketsRef = db.collection(`users/${partnerUid}/tickets`);
+
+    sentTicketsRef.orderBy('exchange_time', 'desc').onSnapshot((querySnapshot) => {
+      const sentTickets = [];
+      querySnapshot.forEach((doc) => {
+        sentTickets.push(doc.data());
+      });
+      dispatch(setSentTickets(sentTickets));
     });
   }
 );

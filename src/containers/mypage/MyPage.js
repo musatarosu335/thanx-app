@@ -1,7 +1,7 @@
 import firebase from 'firebase/app';
 import { connect } from 'react-redux';
 import MyPage from '../../components/mypage/MyPage';
-import { fetchUserInfo, fetchPartnerInfo, setTicketList, setReceivedTickets } from '../../actions/mypage';
+import { fetchUserInfo, fetchPartnerInfo, setTicketList, setReceivedTickets, fetchSentTickets } from '../../actions/mypage';
 
 const mapStateToProps = ({ mypage }) => ({
   userInfo: mypage.userInfo,
@@ -56,6 +56,10 @@ const mapDispatchToProps = dispatch => ({
       });
       dispatch(setReceivedTickets(receivedTickets));
     });
+  },
+  // 送ったチケット一覧の取得とリッスン
+  fetchSentTickets() {
+    dispatch(fetchSentTickets());
   },
 });
 

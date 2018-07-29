@@ -5,6 +5,7 @@ const initialState = {
   message: '',
   tickets: [],
   receivedTickets: [],
+  sentTickets: [],
 };
 
 const mypageReducer = (state = initialState, action) => {
@@ -38,6 +39,11 @@ const mypageReducer = (state = initialState, action) => {
       return ({
         ...state,
         receivedTickets: action.payload.receivedTickets,
+      });
+    case 'SET_SENT_TICKETS':
+      return ({
+        ...state,
+        sentTickets: action.payload.sentTickets,
       });
     default:
       return state;
