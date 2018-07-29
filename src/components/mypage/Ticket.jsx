@@ -21,7 +21,17 @@ const styles = theme => ({
 });
 
 const PanelHeader = styled.div`
-  font-weight: bold;
+  width: 100%;
+  background: #dfefff;
+  box-shadow: 0px 0px 0px 5px #dfefff;
+  border: dashed 2px white;
+  padding: 0.2em 0.5em;
+  text-align: center;
+`;
+
+const Point = styled.p`
+  background: linear-gradient(transparent 70%, #a7d6ff 70%);
+  font-size: 1.1rem;
 `;
 
 const Ticket = ({ ticket, classes }) => (
@@ -29,12 +39,14 @@ const Ticket = ({ ticket, classes }) => (
     <PanelHeader>
       {ticket.ticket_name}
     </PanelHeader>
-    <Typography component="p">
-      {ticket.description}
-    </Typography>
-    <Typography component="p">
+    {/*
+      <Typography component="p">
+        {ticket.description}
+      </Typography>
+    */}
+    <Point>
       {ticket.point}pt
-    </Typography>
+    </Point>
     <ExchangeTicketButton ticket={ticket} />
   </Paper>
 );
