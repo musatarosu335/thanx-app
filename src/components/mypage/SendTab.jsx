@@ -13,8 +13,16 @@ const Container = styled.div`
   align-items: center;
 `;
 
+const Header = styled.div`
+  margin: 16px;
+  text-align: center;
+  color: #565656;
+  font-size: 1.1rem;
+`;
+
 const SendTab = () => (
   <Container>
+    <Header>日頃の感謝をポイントとして送ろう！</Header>
     <PointArea />
     <PointSlider />
     <MessageArea />

@@ -10,7 +10,10 @@ const Container = styled.div`
 `;
 
 const Header = styled.div`
+  margin: 16px;
   text-align: center;
+  color: #565656;
+  font-size: 1.1rem;
 `;
 
 const ExchangeTab = () => (
