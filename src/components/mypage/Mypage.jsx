@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import styled from 'styled-components';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -25,6 +24,7 @@ export default class MyPage extends React.Component {
     this.props.fetchAndSetUserInfo();
     this.props.fetchAndSetPartnerInfo();
     this.props.fetchTicketList();
+    this.props.fetchReceivedTickets();
   }
 
   handleChange(event, value) {
@@ -61,4 +61,5 @@ MyPage.propTypes = {
   fetchAndSetUserInfo: PropTypes.func.isRequired,
   fetchAndSetPartnerInfo: PropTypes.func.isRequired,
   fetchTicketList: PropTypes.func.isRequired,
+  fetchReceivedTickets: PropTypes.func.isRequired,
 };

@@ -9,12 +9,12 @@ const styles = theme => ({
   },
 });
 
-const ExecuteButton = ({ documentId, executeAndReacquireTicketList, classes }) => (
+const ExecuteButton = ({ documentId, executeTicket, classes }) => (
   <Button
     variant="contained"
     color="primary"
     className={classes.button}
-    onClick={() => executeAndReacquireTicketList(documentId)}
+    onClick={() => executeTicket(documentId)}
   >
     実行
   </Button>
@@ -22,7 +22,7 @@ const ExecuteButton = ({ documentId, executeAndReacquireTicketList, classes }) =
 
 ExecuteButton.propTypes = {
   documentId: PropTypes.string.isRequired,
-  executeAndReacquireTicketList: PropTypes.func.isRequired,
+  executeTicket: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired,
 };
 
