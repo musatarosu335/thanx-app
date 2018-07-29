@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 
-// import toDateString from '../../func/toDateString';
+import toDateString from '../../func/toDateString';
 
 const styles = () => ({
   root: {
@@ -31,18 +31,19 @@ const TicketDate = styled.div`
   color: #999999;
 `;
 
-const SentTicket = ({ classes }) => (
+const SentTicket = ({ sentTicket, classes }) => (
   <Paper className={classes.root} elevation={1}>
     <TicketName>
-      test
+      {sentTicket.ticket_name}
     </TicketName>
     <TicketDate>
-      2018/06/07
+      {toDateString(sentTicket.exchange_time)}
     </TicketDate>
   </Paper>
 );
 
 SentTicket.propTypes = {
+  sentTicket: PropTypes.object.isRequired,
   classes: PropTypes.object.isRequired,
 };
 

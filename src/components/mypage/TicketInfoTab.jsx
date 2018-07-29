@@ -5,7 +5,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 
 import ReceivedTicketList from '../../containers/mypage/ReceivedTicketList';
-import SentTicketList from './SentTicketList';
+import SentTicketList from '../../containers/mypage/SentTicketList';
 
 const styles = {
   root: {
