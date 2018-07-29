@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import Alert from '../common/Alert';
 import ReceivedTicket from './ReceivedTicket';
 
 /*
@@ -19,16 +20,24 @@ const Container = styled.div`
   flex-direction: column;
 `;
 
-const ReceivedTicketList = ({ receivedTickets }) => (
-  <Container>
-    {receivedTickets.map((receivedTicket, i) => (
-      <ReceivedTicket
-        key={i} // eslint-disable-line
-        receivedTicket={receivedTicket}
-      />
-    ))}
-  </Container>
-);
+const ReceivedTicketList = ({ receivedTickets }) => {
+  if (receivedTickets.length === 0) {
+    return (
+      <Alert>現在受け取っているチケットはありません。</Alert>
+    );
+  }
+
+  return (
+    <Container>
+      {receivedTickets.map((receivedTicket, i) => (
+        <ReceivedTicket
+          key={i} // eslint-disable-line
+          receivedTicket={receivedTicket}
+        />
+      ))}
+    </Container>
+  );
+};
 
 ReceivedTicketList.propTypes = {
   receivedTickets: PropTypes.array.isRequired,
