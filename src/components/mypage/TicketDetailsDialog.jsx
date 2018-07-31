@@ -7,18 +7,15 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Button from '@material-ui/core/Button';
 
-const TicketDetailsDialog = ({ open, handleClose }) => (
+const TicketDetailsDialog = ({ ticket, open, handleClose }) => (
   <Dialog
     open={open}
     onClose={() => handleClose()}
-    aria-labelledby="alert-dialog-title"
-    aria-describedby="alert-dialog-description"
   >
-    <DialogTitle id="alert-dialog-title">Use Google location service?</DialogTitle>
+    <DialogTitle>{ticket.ticket_name}</DialogTitle>
     <DialogContent>
-      <DialogContentText id="alert-dialog-description">
-        Let Google help apps determine location. This means sending anonymous location data to
-        Google, even when no apps are running.
+      <DialogContentText>
+        {ticket.description}
       </DialogContentText>
     </DialogContent>
     <DialogActions>
@@ -33,6 +30,7 @@ const TicketDetailsDialog = ({ open, handleClose }) => (
 );
 
 TicketDetailsDialog.propTypes = {
+  ticket: PropTypes.object.isRequired,
   open: PropTypes.bool.isRequired,
   handleClose: PropTypes.func.isRequired,
 };

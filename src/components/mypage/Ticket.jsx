@@ -63,6 +63,7 @@ class Ticket extends React.Component {
         </Point>
         <ExchangeTicketButton ticket={ticket} />
         <TicketDetailsDialog
+          ticket={ticket}
           open={this.state.open}
           handleClose={() => this.handleClose()}
         />
