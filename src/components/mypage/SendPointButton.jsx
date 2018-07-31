@@ -21,12 +21,13 @@ class SendPointButton extends React.Component {
   }
 
   render() {
-    const { classes } = this.props;
+    const { point, classes } = this.props;
 
     return (
       <Button
         variant="contained"
         color="primary"
+        disabled={point === 0}
         className={classes.button}
         onClick={() => this.handleClick()}
       >
@@ -38,6 +39,7 @@ class SendPointButton extends React.Component {
 }
 
 SendPointButton.propTypes = {
+  point: PropTypes.number.isRequired,
   sendPointAndMessage: PropTypes.func.isRequired,
   handleClickOpen: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired,
