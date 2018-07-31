@@ -5,8 +5,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-
-import ExchangeTicketButton from '../../containers/mypage/ExchangeTicketButton';
+import Button from '@material-ui/core/Button';
 
 const TicketDetailsDialog = ({ open, handleClose }) => (
   <Dialog
@@ -23,9 +22,12 @@ const TicketDetailsDialog = ({ open, handleClose }) => (
       </DialogContentText>
     </DialogContent>
     <DialogActions>
-      {/*
-      <ExchangeTicketButton />
-      */}
+      <Button
+        onClick={() => handleClose()}
+        color="primary"
+      >
+        チケット一覧へ
+      </Button>
     </DialogActions>
   </Dialog>
 );
