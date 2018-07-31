@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
 
 import ExchangeTicketButton from '../../containers/mypage/ExchangeTicketButton';
+import TicketDetailsDialog from './TicketDetailsDialog';
 
 const styles = theme => ({
   root: {
@@ -34,22 +34,42 @@ const Point = styled.p`
   font-size: 1.1rem;
 `;
 
-const Ticket = ({ ticket, classes }) => (
-  <Paper className={classes.root} elevation={1}>
-    <PanelHeader>
-      {ticket.ticket_name}
-    </PanelHeader>
-    {/*
-      <Typography component="p">
-        {ticket.description}
-      </Typography>
-    */}
-    <Point>
-      {ticket.point}pt
-    </Point>
-    <ExchangeTicketButton ticket={ticket} />
-  </Paper>
-);
+class Ticket extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      open: false, // Reduxで管理する必要なし
+    };
+  }
+
+  handleClickOpen() {
+    this.setState({ open: true });
+  }
+
+  handleClose() {
+    this.setState({ open: false });
+  }
+
+  render() {
+    const { ticket, classes } = this.props;
+
+    return (
+      <Paper className={classes.root} elevation={1}>
+        <PanelHeader onClick={() => this.handleClickOpen()}>
+          {ticket.ticket_name}
+        </PanelHeader>
+        <Point>
+          {ticket.point}pt
+        </Point>
+        <ExchangeTicketButton ticket={ticket} />
+        <TicketDetailsDialog
+          open={this.state.open}
+          handleClose={() => this.handleClose()}
+        />
+      </Paper>
+    );
+  }
+}
 
 Ticket.propTypes = {
   ticket: PropTypes.object.isRequired,
