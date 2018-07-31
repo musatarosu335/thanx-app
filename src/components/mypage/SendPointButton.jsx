@@ -13,20 +13,33 @@ const styles = theme => ({
   },
 });
 
-const SendPointButton = ({ sendPointAndMessage, classes }) => (
-  <Button
-    variant="contained"
-    color="primary"
-    className={classes.button}
-    onClick={() => sendPointAndMessage()}
-  >
-    ポイントを送る
-    <SendIcon className={classes.rightIcon} />
-  </Button>
-);
+
+class SendPointButton extends React.Component {
+  handleClick() {
+    this.props.sendPointAndMessage();
+    this.props.handleClickOpen();
+  }
+
+  render() {
+    const { classes } = this.props;
+
+    return (
+      <Button
+        variant="contained"
+        color="primary"
+        className={classes.button}
+        onClick={() => this.handleClick()}
+      >
+        ポイントを送る
+        <SendIcon className={classes.rightIcon} />
+      </Button>
+    );
+  }
+}
 
 SendPointButton.propTypes = {
   sendPointAndMessage: PropTypes.func.isRequired,
+  handleClickOpen: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired,
 };
 
