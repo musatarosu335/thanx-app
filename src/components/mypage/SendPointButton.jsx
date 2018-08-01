@@ -16,8 +16,8 @@ const styles = theme => ({
 
 class SendPointButton extends React.Component {
   handleClick() {
-    this.props.sendPointAndMessage();
     this.props.handleClickOpen();
+    this.props.sendPointAndMessage();
   }
 
   render() {

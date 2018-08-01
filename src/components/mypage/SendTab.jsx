@@ -50,16 +50,3 @@ export default class SendTab extends React.Component {
     );
   }
 }
-/*
-export default SendTab = () => (
-  <Container>
-    <Header>日頃の感謝をポイントとして送ろう！</Header>
-    <PointArea />
-    <PointSlider />
-    <MessageArea />
-    <SendPointButton />
-    <SendPointDialog />
-  </Container>
-);
-*/
-// export default SendTab;
