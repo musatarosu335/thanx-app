@@ -38,16 +38,16 @@ class Ticket extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: false, // Reduxで管理する必要なし
+      openDetailDialog: false, // Reduxで管理する必要なし
     };
   }
 
-  handleClickOpen() {
-    this.setState({ open: true });
+  handleOpenDetailDialog() {
+    this.setState({ openDetailDialog: true });
   }
 
-  handleClose() {
-    this.setState({ open: false });
+  handleCloseDetailDialog() {
+    this.setState({ openDetailDialog: false });
   }
 
   render() {
@@ -55,7 +55,7 @@ class Ticket extends React.Component {
 
     return (
       <Paper className={classes.root} elevation={1}>
-        <PanelHeader onClick={() => this.handleClickOpen()}>
+        <PanelHeader onClick={() => this.handleOpenDetailDialog()}>
           {ticket.ticket_name}
         </PanelHeader>
         <Point>
@@ -64,8 +64,8 @@ class Ticket extends React.Component {
         <ExchangeTicketButton ticket={ticket} />
         <TicketDetailsDialog
           ticket={ticket}
-          open={this.state.open}
-          handleClose={() => this.handleClose()}
+          open={this.state.openDetailDialog}
+          handleClose={() => this.handleCloseDetailDialog()}
         />
       </Paper>
     );
