@@ -9,32 +9,6 @@ const styles = theme => ({
   },
 });
 
-/*
-const ExchangeTicketButton = ({
-  ticket,
-  userInfo,
-  partnerUid,
-  exchangeTicket,
-  classes,
-}) => {
-  const userPoint = userInfo.point;
-  const ticketPoint = ticket.point;
-  const sign = Math.sign(userPoint - ticketPoint); // ポイントが足りない場合、ボタンを押させない
-
-  return (
-    <Button
-      variant="contained"
-      color="primary"
-      className={classes.button}
-      disabled={sign === -1}
-      onClick={() => exchangeTicket(ticket, userInfo.point, partnerUid)}
-    >
-      交換する
-    </Button>
-  );
-};
-*/
-
 class ExchangeTicketButton extends React.Component {
   handleClick(ticket, point, partnerUid) {
     this.props.handleOpen();
