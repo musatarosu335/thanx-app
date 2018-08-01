@@ -6,6 +6,7 @@ import Paper from '@material-ui/core/Paper';
 
 import ExchangeTicketButton from '../../containers/mypage/ExchangeTicketButton';
 import TicketDetailsDialog from './TicketDetailsDialog';
+import ExchangeTicketDialog from './ExchangeTicketDialog';
 
 const styles = theme => ({
   root: {
@@ -39,6 +40,7 @@ class Ticket extends React.Component {
     super(props);
     this.state = {
       openDetailDialog: false, // Reduxで管理する必要なし
+      openExchangeDialog: false, // Reduxで管理する必要なし
     };
   }
 
@@ -48,6 +50,14 @@ class Ticket extends React.Component {
 
   handleCloseDetailDialog() {
     this.setState({ openDetailDialog: false });
+  }
+
+  handleOpenExchangeDialog() {
+    this.setState({ openExchangeDialog: true });
+  }
+
+  handleCloseExchangeDialog() {
+    this.setState({ openExchangeDialog: false });
   }
 
   render() {
@@ -61,11 +71,16 @@ class Ticket extends React.Component {
         <Point>
           {ticket.point}pt
         </Point>
-        <ExchangeTicketButton ticket={ticket} />
+        <ExchangeTicketButton ticket={ticket} handleOpen={() => this.handleOpenExchangeDialog()} />
         <TicketDetailsDialog
           ticket={ticket}
           open={this.state.openDetailDialog}
           handleClose={() => this.handleCloseDetailDialog()}
+        />
+        <ExchangeTicketDialog
+          ticket={ticket}
+          open={this.state.openExchangeDialog}
+          handleClose={() => this.handleCloseExchangeDialog()}
         />
       </Paper>
     );
