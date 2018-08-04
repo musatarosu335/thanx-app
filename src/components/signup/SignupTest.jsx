@@ -2,7 +2,12 @@ import firebase from 'firebase/app';
 import firebaseui from 'firebaseui';
 import 'firebaseui/dist/firebaseui.css';
 import React from 'react';
+import styled from 'styled-components';
 
+const Container = styled.div`
+  text-align: center;
+  margin: 16px;
+`;
 
 export default class SignupPage extends React.Component {
   componentDidMount() {
@@ -13,14 +18,12 @@ export default class SignupPage extends React.Component {
           return true;
         },
         uiShown: () => {
-          // The widget is rendered.
-          // Hide the loader.
           document.getElementById('loader').style.display = 'none';
         },
       },
       // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
       signInFlow: 'popup',
-      signInSuccessUrl: '<url-to-redirect-to-on-success>',
+      signInSuccessUrl: 'mypage',
       signInOptions: [
         // Leave the lines as is for the providers you want to offer your users.
         firebase.auth.GoogleAuthProvider.PROVIDER_ID,
@@ -37,11 +40,12 @@ export default class SignupPage extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Welcome to My Awesome App</h1>
+      <Container>
+        <h1>ログイン</h1>
+        <p>Googleアカウント、もしくは他のメールアドレスでログインできます。</p>
         <div id="firebaseui-auth-container" />
         <div id="loader">Loading...</div>
-      </div>
+      </Container>
     );
   }
 }
