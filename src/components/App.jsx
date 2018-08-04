@@ -6,7 +6,7 @@ import CheckPartner from '../containers/checkPartner';
 import NoMatch from './NoMatch';
 import Header from './common/Header';
 import MainPage from './main/MainPage';
-// import SignupPage from './signup/SignupPage';
+import SignupPage from './signup/SignupTest';
 import LoginPage from './login/LoginPage';
 import SearchPage from '../containers/search/SearchPage';
 import MyPage from '../containers/mypage/MyPage';
@@ -18,6 +18,7 @@ const App = () => (
       <Header />
       <Switch>
         <Route exact path="/" component={MainPage} />
+        <Route exact path="/signup" component={SignupPage} />
         {/*
           <Route exact path="/signup" component={SignupPage} />
         */}
