@@ -31,7 +31,7 @@ export default class Auth extends React.Component {
   render() {
     if (this.state.loading) {
       return (
-        <p>Now Loading...</p>
+        <p>Now Loading.....</p>
       );
     }
 

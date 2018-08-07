@@ -14,13 +14,20 @@ const mapDispatchToProps = dispatch => ({
     const { currentUser } = firebase.auth();
     const currentUserRef = db.collection('users').doc(currentUser.uid);
 
-    currentUserRef.get().then((doc) => {
-      const { partner } = doc.data();
-      if (partner) {
-        dispatch(setPartnerUid(partner));
+    // ユーザ情報がFirestoreに登録されるまでリッスン→登録されたらデタッチ
+    // ユーザ登録直後のリダイレクトではFirestoreへのユーザ情報の書き込みが非同期処理になるため
+    const unsubscribe = currentUserRef.onSnapshot((doc) => {
+      if (doc.exists) {
+        unsubscribe(); // ユーザ情報リスナーをデタッチ
+        const { partner } = doc.data();
+        if (partner) {
+          dispatch(setPartnerUid(partner));
+        } else {
+          // 「partner: ''」ならば'no'をセットしてloading画面を解除
+          dispatch(setPartnerUid('no'));
+        }
       } else {
-        // 「partner: ''」ならば'no'をセットしてloading画面を解除
-        dispatch(setPartnerUid('no'));
+        console.log('Not exists...'); // eslint-disable-line no-console
       }
     });
   },
