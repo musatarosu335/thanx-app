@@ -22,6 +22,8 @@ const mapDispatchToProps = dispatch => ({
         } else {
           dispatch(setLoading(false));
         }
+      } else { // ユーザ登録直後のFirestoreへの書き込み処理(非同期)に対応するため
+        dispatch(setLoading(false));
       }
     });
   },

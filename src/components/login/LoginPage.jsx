@@ -1,60 +1,54 @@
+import firebase from 'firebase/app';
+import firebaseui from 'firebaseui';
+import 'firebaseui/dist/firebaseui.css';
 import React from 'react';
 import styled from 'styled-components';
 
-import LoginButton from './LoginButton';
 import LogoutButton from './LogoutButton';
 
 const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-const Input = styled.input`
-  border: 2px solid #F5F5F5;
-  margin-bottom: 10px;
+  text-align: center;
+  margin: 16px;
 `;
 
 export default class LoginPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      email: '',
-      password: '',
+  componentDidMount() {
+    const ui = new firebaseui.auth.AuthUI(firebase.auth());
+    const uiConfig = {
+      callbacks: {
+        signInSuccessWithAuthResult: (authResult, redirectUrl) => {
+          return true;
+        },
+        uiShown: () => {
+          document.getElementById('loader').style.display = 'none';
+        },
+      },
+      // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+      signInFlow: 'popup',
+      signInSuccessUrl: 'mypage',
+      signInOptions: [
+        // Leave the lines as is for the providers you want to offer your users.
+        firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+        // firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        firebase.auth.EmailAuthProvider.PROVIDER_ID,
+      ],
+      // Terms of service url.
+      tosUrl: '<your-tos-url>',
+      // Privacy policy url.
+      privacyPolicyUrl: '<your-privacy-policy-url>',
     };
-  }
 
-  handleChangeEmail(value) {
-    this.setState({
-      email: value,
-    });
-  }
-
-  handleChangePassword(value) {
-    this.setState({
-      password: value,
-    });
+    ui.start('#firebaseui-auth-container', uiConfig);
   }
 
   render() {
     return (
       <Container>
-        <h1>Signin</h1>
-        <div>メールアドレス</div>
-        <Input
-          type="text"
-          value={this.state.email}
-          onChange={e => this.handleChangeEmail(e.target.value)}
-        />
-        <div>パスワード</div>
-        <Input
-          type="password"
-          value={this.state.password}
-          onChange={e => this.handleChangePassword(e.target.value)}
-        />
-        <LoginButton
-          email={this.state.email}
-          password={this.state.password}
-        />
+        <h1>ログイン</h1>
+        <p>SNSアカウント、メールアドレスでログインできます。</p>
+        <div id="firebaseui-auth-container" />
+        <div id="loader">Loading...</div>
         <LogoutButton />
       </Container>
     );
