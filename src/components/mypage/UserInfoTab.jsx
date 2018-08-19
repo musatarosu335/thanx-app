@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import UserPanel from './UserPanel';
 import TicketInfo from './TicketInfo';
+import PointChart from './PointChart';
 
 const Container = styled.div`
   width: 100%;
@@ -25,6 +26,7 @@ const UserInfoTab = ({ userInfo, partnerInfo }) => (
       <UserPanel basicUserInfo={partnerInfo} />
     </UserContainer>
     <TicketInfo />
+    <PointChart />
   </Container>
 );
 
