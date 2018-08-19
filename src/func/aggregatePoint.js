@@ -3,6 +3,8 @@ import _ from 'lodash';
 const totalPointPerDay = (receivedPointList) => {
   // "formattedSentTime"でグルーピングしてオブジェクト化
   const groupedPointList = _.groupBy(receivedPointList, 'formattedSentTime');
+  const daylyPointList = [];
+
   _.forIn(groupedPointList, (value, key) => {
     let totalPoint = 0;
     // 配列内のオブジェクトの"point"を取得して加算していく
@@ -14,9 +16,10 @@ const totalPointPerDay = (receivedPointList) => {
       date: key,
       totalPoint,
     };
-    console.log(daylyPoint);
-    return daylyPoint;
+    daylyPointList.push(daylyPoint);
   });
+  console.log(daylyPointList);
+  return daylyPointList;
 };
 
 export default totalPointPerDay;
