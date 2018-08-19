@@ -1,17 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { withStyles } from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 
 import ReceivedTicketList from '../../containers/mypage/ReceivedTicketList';
 import SentTicketList from '../../containers/mypage/SentTicketList';
-
-const styles = {
-  root: {
-    flexGrow: 1,
-  },
-};
 
 const Container = styled.div`
   position: relative;
@@ -68,4 +61,4 @@ class TicketInfoTab extends React.Component {
   }
 }
 
-export default withStyles(styles)(TicketInfoTab);
+export default TicketInfoTab;
