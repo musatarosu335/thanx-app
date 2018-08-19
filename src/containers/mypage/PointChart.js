@@ -4,6 +4,8 @@ import moment from 'moment';
 import PointChart from '../../components/mypage/PointChart';
 import { setReceivedPointList } from '../../actions/mypage';
 
+import totalPointPerDay from '../../func/aggregatePoint';
+
 const mapStateToProps = ({ mypage }) => ({
   receivedPointList: mypage.receivedPointList,
 });
@@ -33,6 +35,7 @@ const mapDispatchToProps = dispatch => ({
           receivedPointList.push(modData);
         });
         dispatch(setReceivedPointList(receivedPointList));
+        totalPointPerDay(receivedPointList);
       })
       .catch((err) => {
         console.log(err); // eslint-disable-line no-console
