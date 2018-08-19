@@ -7,6 +7,7 @@ const initialState = {
   receivedTickets: [],
   sentTickets: [],
   receivedPointList: [],
+  daylyPointList: [],
 };
 
 const mypageReducer = (state = initialState, action) => {
@@ -50,6 +51,11 @@ const mypageReducer = (state = initialState, action) => {
       return ({
         ...state,
         receivedPointList: action.payload.receivedPointList,
+      });
+    case 'SET_DAYLY_POINT_LIST':
+      return ({
+        ...state,
+        daylyPointList: action.payload.daylyPointList,
       });
     default:
       return state;

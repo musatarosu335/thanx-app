@@ -80,7 +80,7 @@ const Container = styled.div`
   }
 `;
 
-const PointChart = ({ receivedPointList }) => (
+const PointChart = ({ daylyPointList }) => (
   <Container>
     <ResponsiveContainer width="100%" height={300}>
       <LineChart
@@ -100,7 +100,7 @@ const PointChart = ({ receivedPointList }) => (
 );
 
 PointChart.propTypes = {
-  receivedPointList: PropTypes.array.isRequired,
+  daylyPointList: PropTypes.array.isRequired,
 };
 
 export default lifecycle({

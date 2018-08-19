@@ -59,6 +59,13 @@ export const setReceivedPointList = receivedPointList => ({
   },
 });
 
+export const setDaylyPointList = daylyPointList => ({
+  type: 'SET_DAYLY_POINT_LIST',
+  payload: {
+    daylyPointList,
+  },
+});
+
 /*
 Next関数
 */

@@ -2,12 +2,12 @@ import firebase from 'firebase/app';
 import { connect } from 'react-redux';
 import moment from 'moment';
 import PointChart from '../../components/mypage/PointChart';
-import { setReceivedPointList } from '../../actions/mypage';
+import { setReceivedPointList, setDaylyPointList } from '../../actions/mypage';
 
 import totalPointPerDay from '../../func/aggregatePoint';
 
 const mapStateToProps = ({ mypage }) => ({
-  receivedPointList: mypage.receivedPointList,
+  daylyPointList: mypage.daylyPointList,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -35,7 +35,7 @@ const mapDispatchToProps = dispatch => ({
           receivedPointList.push(modData);
         });
         dispatch(setReceivedPointList(receivedPointList));
-        totalPointPerDay(receivedPointList);
+        dispatch(setDaylyPointList(totalPointPerDay(receivedPointList)));
       })
       .catch((err) => {
         console.log(err); // eslint-disable-line no-console

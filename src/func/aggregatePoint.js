@@ -18,7 +18,6 @@ const totalPointPerDay = (receivedPointList) => {
     };
     daylyPointList.push(daylyPoint);
   });
-  console.log(daylyPointList);
   return daylyPointList;
 };
 
