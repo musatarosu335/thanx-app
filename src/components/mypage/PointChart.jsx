@@ -1,5 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { lifecycle } from 'recompose';
 import {
   ResponsiveContainer,
   LineChart,
@@ -78,7 +80,7 @@ const Container = styled.div`
   }
 `;
 
-const PointChart = () => (
+const PointChart = ({ receivedPointList }) => (
   <Container>
     <ResponsiveContainer width="100%" height={300}>
       <LineChart
@@ -97,4 +99,13 @@ const PointChart = () => (
   </Container>
 );
 
-export default PointChart;
+PointChart.propTypes = {
+  receivedPointList: PropTypes.array.isRequired,
+};
+
+export default lifecycle({
+  componentDidMount() {
+    // 一週間分のポイント情報を取得
+    this.props.fetchReceivedPointList();
+  },
+})(PointChart);

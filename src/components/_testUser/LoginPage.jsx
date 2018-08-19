@@ -38,7 +38,7 @@ export default class LoginPage extends React.Component {
   render() {
     return (
       <Container>
-        <h1>Signin</h1>
+        <h1>テストユーザーログイン</h1>
         <div>メールアドレス</div>
         <Input
           type="text"

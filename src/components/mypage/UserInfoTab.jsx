@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import UserPanel from './UserPanel';
 import TicketInfo from './TicketInfo';
-import PointChart from './PointChart';
+import PointChart from '../../containers/mypage/PointChart';
 
 const Container = styled.div`
   width: 100%;

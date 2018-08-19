@@ -52,6 +52,13 @@ const setSentTickets = sentTickets => ({
   },
 });
 
+export const setReceivedPointList = receivedPointList => ({
+  type: 'SET_RECEIVED_POINT_LIST',
+  payload: {
+    receivedPointList,
+  },
+});
+
 /*
 Next関数
 */

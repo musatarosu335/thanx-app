@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import LoginPage from './LoginPage';
 import SignupButton from './SignupButton';
 
 const Container = styled.div`
@@ -44,7 +45,8 @@ export default class SignupPage extends React.Component {
   render() {
     return (
       <Container>
-        <h1>Signin</h1>
+        <LoginPage />
+        <h1>テストユーザー作成</h1>
         <div>ユーザー名</div>
         <Input
           type="text"
