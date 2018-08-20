@@ -9,6 +9,7 @@ import MainPage from './main/MainPage';
 import LoginPage from './login/LoginPage';
 import SearchPage from '../containers/search/SearchPage';
 import MyPage from '../containers/mypage/MyPage';
+import PointsPage from './points/PointsPage';
 
 import CreateTestUser from './_testUser/SignupPage';
 
@@ -26,6 +27,7 @@ const App = () => (
             <CheckPartner>
               <Switch>
                 <Route exact path="/mypage" component={MyPage} />
+                <Route exact path="/mypage/points/:date" component={PointsPage} />
                 <Route component={NoMatch} />
               </Switch>
             </CheckPartner>
