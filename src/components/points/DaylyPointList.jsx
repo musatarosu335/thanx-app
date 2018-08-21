@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import _ from 'lodash';
 
 import fetchWeeklyPoint from '../../func/fetchWeeklyPoint';
+import DaylyPoint from './DaylyPoint';
 
 export default class DaylyPointList extends React.Component {
   constructor(props) {
@@ -30,9 +31,9 @@ export default class DaylyPointList extends React.Component {
     }
     return (
       <div>
-        {this.state.daylyPointList.map((daylyPoint) => {
-          return <p>test</p>;
-        })}
+        {this.state.daylyPointList.map((daylyPoint, i) => (
+          <DaylyPoint key={i} daylyPoint={daylyPoint} /> // eslint-disable-line
+        ))}
       </div>
     );
   }
