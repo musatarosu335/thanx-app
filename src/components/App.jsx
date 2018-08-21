@@ -27,7 +27,7 @@ const App = () => (
             <CheckPartner>
               <Switch>
                 <Route exact path="/mypage" component={MyPage} />
-                <Route exact path="/mypage/points/:date" component={PointsPage} />
+                <Route exact path="/points/:date" component={PointsPage} />
                 <Route component={NoMatch} />
               </Switch>
             </CheckPartner>

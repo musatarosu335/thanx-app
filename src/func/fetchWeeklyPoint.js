@@ -18,7 +18,7 @@ const fetchWeeklyPoint = () => {
         .then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
             const sentTime = doc.data().sent_time.seconds;
-            const formattedSentTime = moment.unix(sentTime).format('MM-DD');
+            const formattedSentTime = moment.unix(sentTime).format('YYYY-MM-DD');
             const modData = {
               ...doc.data(),
               formattedSentTime,
