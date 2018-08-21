@@ -53,7 +53,13 @@ const PointChart = ({ daylyPointList }) => (
         <YAxis />
         <Tooltip />
         <Legend />
-        <Line type="monotone" dataKey="totalPoint" stroke="#8884d8" dot={<CustomizedDot />} />
+        <Line
+          type="monotone"
+          dataKey="totalPoint"
+          stroke="#8884d8"
+          activeDot={false}
+          dot={<CustomizedDot />}
+        />
       </LineChart>
     </ResponsiveContainer>
   </Container>
