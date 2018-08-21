@@ -57,6 +57,7 @@ const PointChart = ({ daylyPointList }) => (
           type="monotone"
           dataKey="totalPoint"
           stroke="#8884d8"
+          isAnimationActive={false}
           activeDot={false}
           dot={<CustomizedDot />}
         />
