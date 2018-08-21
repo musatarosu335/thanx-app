@@ -52,17 +52,10 @@ const setSentTickets = sentTickets => ({
   },
 });
 
-export const setReceivedPointList = receivedPointList => ({
-  type: 'SET_RECEIVED_POINT_LIST',
+export const setDaylyTotalPoints = daylyTotalPoints => ({
+  type: 'SET_DAYLY_TOTAL_POINTS',
   payload: {
-    receivedPointList,
-  },
-});
-
-export const setDaylyPointList = daylyPointList => ({
-  type: 'SET_DAYLY_POINT_LIST',
-  payload: {
-    daylyPointList,
+    daylyTotalPoints,
   },
 });
 

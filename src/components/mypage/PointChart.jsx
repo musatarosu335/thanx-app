@@ -36,11 +36,11 @@ const Container = styled.div`
   }
 `;
 
-const PointChart = ({ daylyPointList }) => (
+const PointChart = ({ daylyTotalPoints }) => (
   <Container>
     <ResponsiveContainer width="100%" height={300}>
       <LineChart
-        data={daylyPointList}
+        data={daylyTotalPoints}
         margin={{
           top: 5,
           right: 30,
@@ -67,12 +67,12 @@ const PointChart = ({ daylyPointList }) => (
 );
 
 PointChart.propTypes = {
-  daylyPointList: PropTypes.array.isRequired,
+  daylyTotalPoints: PropTypes.array.isRequired,
 };
 
 export default lifecycle({
   componentDidMount() {
-    // 一週間分のポイント情報を取得
+    // 一週間分のポイント情報を取得 + 日付けごとのポイントを合計
     this.props.fetchReceivedPointList();
   },
 })(PointChart);

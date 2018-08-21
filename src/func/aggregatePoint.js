@@ -3,7 +3,7 @@ import _ from 'lodash';
 const totalPointPerDay = (receivedPointList) => {
   // "formattedSentTime"でグルーピングしてオブジェクト化
   const groupedPointList = _.groupBy(receivedPointList, 'formattedSentTime');
-  const daylyPointList = [];
+  const daylyTotalPoints = [];
 
   _.forIn(groupedPointList, (value, key) => {
     let totalPoint = 0;
@@ -16,9 +16,9 @@ const totalPointPerDay = (receivedPointList) => {
       date: key,
       totalPoint,
     };
-    daylyPointList.push(daylyPoint);
+    daylyTotalPoints.push(daylyPoint);
   });
-  return daylyPointList;
+  return daylyTotalPoints;
 };
 
 export default totalPointPerDay;
