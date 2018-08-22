@@ -15,10 +15,10 @@ const mapDispatchToProps = dispatch => ({
     const db = firebase.firestore();
     const { currentUser } = firebase.auth();
     const receivedPointRef = db.collection(`users/${currentUser.uid}/point`);
-    const getTargetDateList = getTargetDate();
+    const targetDateList = getTargetDate();
     const receivedPointList = [];
 
-    getTargetDateList.forEach((targetDate) => {
+    targetDateList.forEach((targetDate) => {
       const startOfTargetDate = new Date(`${targetDate} 00:00:00`);
       const endOfTargetDate = new Date(`${targetDate} 23:59:59`);
 
