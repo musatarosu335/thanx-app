@@ -1,10 +1,9 @@
 import { connect } from 'react-redux';
 import firebase from 'firebase/app';
-import moment from 'moment';
 import PointChart from '../../components/mypage/PointChart';
 import { setDaylyTotalPoints } from '../../actions/mypage';
 
-import totalPointPerDay from '../../func/aggregatePoint';
+import { getTargetDate, totalPointPerDay } from '../../func/aggregatePoint';
 
 const mapStateToProps = ({ mypage }) => ({
   daylyTotalPoints: mypage.daylyTotalPoints,
@@ -16,30 +15,28 @@ const mapDispatchToProps = dispatch => ({
     const db = firebase.firestore();
     const { currentUser } = firebase.auth();
     const receivedPointRef = db.collection(`users/${currentUser.uid}/point`);
-    const today = new Date();
-    today.setDate(today.getDate() - 1); // 要調整
-    const lastWeek = new Date();
-    lastWeek.setDate(lastWeek.getDate() - 8); // 要調整
+    const getTargetDateList = getTargetDate();
     const receivedPointList = [];
 
-    receivedPointRef.where('sent_time', '>=', lastWeek).where('sent_time', '<', today) // 要調整
-      .get()
-      .then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-          const sentTime = doc.data().sent_time.seconds;
-          const formattedSentTime = moment.unix(sentTime).format('YYYY-MM-DD');
-          const modData = {
-            ...doc.data(),
-            formattedSentTime,
-          };
-          receivedPointList.push(modData);
+    getTargetDateList.forEach((targetDate) => {
+      const startOfTargetDate = new Date(`${targetDate} 00:00:00`);
+      const endOfTargetDate = new Date(`${targetDate} 23:59:59`);
+
+      receivedPointRef.where('sent_time', '>=', startOfTargetDate).where('sent_time', '<', endOfTargetDate) // 要調整
+        .get()
+        .then((querySnapshot) => {
+          const daylyDatas = []; // querySnapshotに値がなかった場合のために、空の配列を定義
+          querySnapshot.forEach((doc) => {
+            daylyDatas.push(doc.data());
+          });
+          receivedPointList[targetDate] = daylyDatas;
+          dispatch(setDaylyTotalPoints(totalPointPerDay(receivedPointList)));
+        })
+        .catch((err) => {
+          console.log(err); // eslint-disable-line no-console
+          dispatch(setDaylyTotalPoints([]));
         });
-        dispatch(setDaylyTotalPoints(totalPointPerDay(receivedPointList)));
-      })
-      .catch((err) => {
-        console.log(err); // eslint-disable-line no-console
-        dispatch(setDaylyTotalPoints([]));
-      });
+    });
   },
 });
 
