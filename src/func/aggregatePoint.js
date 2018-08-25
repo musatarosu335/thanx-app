@@ -13,8 +13,6 @@ export const getTargetDate = () => {
 };
 
 export const totalPointPerDay = (receivedPointList) => {
-  // "formattedSentTime"でグルーピングしてオブジェクト化
-  // const groupedPointList = _.groupBy(receivedPointList, 'formattedSentTime');
   const daylyTotalPoints = [];
 
   _.forIn(receivedPointList, (value, key) => {

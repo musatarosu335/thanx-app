@@ -1,12 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const handleClick = (payload) => {
   console.log(payload);
 };
 
-const CustomizedDot = ({ cx, cy, payload }) => {
+const CustomizedDot = ({ cx, cy, payload }) => { // eslint-disable-line
   const { date } = payload;
 
   return (
@@ -18,10 +18,12 @@ const CustomizedDot = ({ cx, cy, payload }) => {
   );
 };
 
+/*
 CustomizedDot.propTypes = {
   cx: PropTypes.number.isRequired,
   cy: PropTypes.number.isRequired,
   payload: PropTypes.object.isRequired,
 };
+*/
 
 export default CustomizedDot;
