@@ -9,6 +9,7 @@ import DaylyPoint from './DaylyPoint';
 
 const Container = styled.div`
   width: 100%;
+  margin-top: 16px;
 `;
 
 export default class DaylyPointList extends React.Component {

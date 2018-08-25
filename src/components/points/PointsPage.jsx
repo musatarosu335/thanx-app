@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 import DaylyPointList from './DaylyPointList';
 
@@ -24,6 +25,7 @@ const PointsPage = ({ match }) => {
   return (
     <Container>
       <Header>{date} ポイント詳細</Header>
+      <Link to="/mypage">マイページ</Link>
       <DaylyPointList date={date} />
     </Container>
   );

@@ -9,11 +9,19 @@ const Container = styled.div`
   margin: 0 8px;
 `;
 
+const Point = styled.div`
+  width: 40px;
+  margin: 16px auto 0;
+  background: linear-gradient(transparent 70%, #a7d6ff 70%);
+  font-size: 1rem;
+`;
+
 const styles = theme => ({
   root: {
     ...theme.mixins.gutters(),
     paddingTop: theme.spacing.unit * 2,
     paddingBottom: theme.spacing.unit * 2,
+    textAlign: 'center',
   },
 });
 
@@ -23,6 +31,9 @@ const DaylyPoint = ({ daylyPoint, classes }) => (
       <Typography component="p">
         {daylyPoint.message}
       </Typography>
+      <Point>
+        {daylyPoint.point}pt
+      </Point>
     </Paper>
   </Container>
 );
