@@ -1,9 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import firebase from 'firebase/app';
+import Grid from '@material-ui/core/Grid';
 
 import Alert from '../common/Alert';
 import DaylyPoint from './DaylyPoint';
+
+const Container = styled.div`
+  width: 100%;
+`;
 
 export default class DaylyPointList extends React.Component {
   constructor(props) {
@@ -44,11 +50,15 @@ export default class DaylyPointList extends React.Component {
       );
     }
     return (
-      <div>
-        {this.state.daylyPointList.map((daylyPoint, i) => (
-          <DaylyPoint key={i} daylyPoint={daylyPoint} /> // eslint-disable-line
-        ))}
-      </div>
+      <Container>
+        <Grid container spacing={8}>
+          {this.state.daylyPointList.map((daylyPoint, i) => (
+            <Grid item xs={12} sm={6} key={i}> {/* eslint-disable-line */}
+              <DaylyPoint daylyPoint={daylyPoint} />
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
     );
   }
 }
