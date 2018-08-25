@@ -28,5 +28,6 @@ export const totalPointPerDay = (receivedPointList) => {
     };
     daylyTotalPoints.push(daylyPoint);
   });
-  return daylyTotalPoints;
+  // 昇順にソートしたデータを返す
+  return _.orderBy(daylyTotalPoints, 'date', 'asc');
 };
