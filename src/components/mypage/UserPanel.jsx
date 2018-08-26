@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
 
 import UserAvatar from './UserAvatar';
 
@@ -20,7 +19,15 @@ const styles = theme => ({
 
 const PanelHeader = styled.div`
   display: flex;
+  justify-content: center;
   align-items: center;
+`;
+
+const Point = styled.div`
+  width: 40px;
+  margin: 8px auto 0;
+  background: linear-gradient(transparent 70%, #a7d6ff 70%);
+  font-size: 1rem;
 `;
 
 const UserPanel = ({ basicUserInfo, classes }) => {
@@ -33,9 +40,9 @@ const UserPanel = ({ basicUserInfo, classes }) => {
         <UserAvatar />
         <div>{userName}</div>
       </PanelHeader>
-      <Typography component="p">
-        {point}pt
-      </Typography>
+      <Point>
+        {`${point}pt`}
+      </Point>
     </Paper>
   );
 };
