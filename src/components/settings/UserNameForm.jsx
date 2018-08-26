@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { lifecycle } from 'recompose';
 
 const Container = styled.div`
   width: 300px;
@@ -23,15 +24,24 @@ const Input = styled.input`
   border-radius: 5px;
 `;
 
-const UserNameForm = () => (
+const UserNameForm = ({ userName, changeUserName }) => (
   <Container>
     <Label>ユーザー名(必須)</Label>
-    <Input type="text" />
+    <Input
+      type="text"
+      value={userName}
+      onChange={e => changeUserName(e.target.value)}
+    />
   </Container>
 );
 
 UserNameForm.propTypes = {
-  // classes: PropTypes.object.isRequired,
+  userName: PropTypes.string.isRequired,
+  changeUserName: PropTypes.func.isRequired,
 };
 
-export default UserNameForm;
+export default lifecycle({
+  componentDidMount() {
+    this.props.fetchUserName();
+  },
+})(UserNameForm);

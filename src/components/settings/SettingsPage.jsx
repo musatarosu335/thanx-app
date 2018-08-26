@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import UserNameForm from './UserNameForm';
+import UserNameForm from '../../containers/settings/UserNameForm';
 
 const Container = styled.div`
   width: 100%;
