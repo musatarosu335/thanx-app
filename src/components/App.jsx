@@ -10,6 +10,7 @@ import LoginPage from './login/LoginPage';
 import SearchPage from '../containers/search/SearchPage';
 import MyPage from '../containers/mypage/MyPage';
 import PointsPage from './points/PointsPage';
+import SettingsPage from './settings/SettingsPage';
 
 import CreateTestUser from './_testUser/SignupPage';
 
@@ -24,6 +25,7 @@ const App = () => (
         <Auth>
           <Switch>
             <Route exact path="/search" component={SearchPage} />
+            <Route exact path="/settings" component={SettingsPage} />
             <CheckPartner>
               <Switch>
                 <Route exact path="/mypage" component={MyPage} />

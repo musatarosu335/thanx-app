@@ -15,7 +15,7 @@ const Container = styled.div`
   padding: 0 10px;
 `;
 
-const Title = styled.h1`
+const Title = styled.h2`
   color: #333;
 `;
 

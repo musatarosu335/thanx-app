@@ -24,7 +24,7 @@ const PointsPage = ({ match }) => {
 
   return (
     <Container>
-      <Header>{date} ポイント詳細</Header>
+      <Header>{`${date} ポイント詳細`}</Header>
       <Link to="/mypage">マイページ</Link>
       <DaylyPointList date={date} />
     </Container>
