@@ -28,8 +28,12 @@ const UserAvatar = ({ photoURL, classes }) => (
   </div>
 );
 
+UserAvatar.defaultProps = {
+  photoURL: '/assets/icon/default_profile.svg',
+};
+
 UserAvatar.propTypes = {
-  photoURL: PropTypes.string.isRequired,
+  photoURL: PropTypes.string,
   classes: PropTypes.object.isRequired,
 };
 
