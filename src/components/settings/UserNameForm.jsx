@@ -11,7 +11,6 @@ const Container = styled.div`
 `;
 
 const Label = styled.div`
-  font-size: 0.9rem;
   font-weight: bold;
   margin: 4px 0;
   color: #666;
@@ -22,6 +21,8 @@ const Input = styled.input`
   height: 24px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  padding: 4px;
+  font-size: 1rem;
 `;
 
 const UserNameForm = ({ userName, changeUserName }) => (

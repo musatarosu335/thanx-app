@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 import UserNameForm from '../../containers/settings/UserNameForm';
+import ChangeSettingsButton from './ChangeSettingsButton';
 
 const Container = styled.div`
   width: 100%;
@@ -23,6 +24,7 @@ const SettingsPage = () => (
     <Header>ユーザー設定</Header>
     <Link to="/mypage">マイページ</Link>
     <UserNameForm />
+    <ChangeSettingsButton />
   </Container>
 );
 
