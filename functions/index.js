@@ -16,9 +16,11 @@ exports.registerUsers = functions.auth.user().onCreate((user) => {
     console.log(userRecord.toJSON()); // eslint-disable-line no-console
     const { email } = userRecord;
     const displayName = userRecord.displayName || 'Anonymous';
+    const photoURL = userRecord.photoURL || '/assets/icon/default_profile.svg';
 
     return db.collection('users').doc(uid).set({
       user_name: displayName,
+      photo_url: photoURL,
       email,
       partner: '',
       point: 0,
