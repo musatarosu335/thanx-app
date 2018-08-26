@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 import UserNameForm from '../../containers/settings/UserNameForm';
-import ChangeSettingsButton from './ChangeSettingsButton';
+import ChangeSettingsButton from '../../containers/settings/ChangeSettingsButton';
 
 const Container = styled.div`
   width: 100%;
