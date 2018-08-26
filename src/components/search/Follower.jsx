@@ -13,6 +13,7 @@ const styles = theme => ({
     paddingBottom: 16,
     marginTop: theme.spacing.unit * 3,
     display: 'flex',
+    alignItems: 'center',
   }),
   userInfo: {
     flex: 3,

@@ -14,6 +14,10 @@ const Container = styled.div`
   padding: 0 10px;
 `;
 
+const Title = styled.h1`
+  color: #333;
+`;
+
 const SearchPage = ({ partnerUid }) => {
   let isPartnerComponent;
 
@@ -27,7 +31,7 @@ const SearchPage = ({ partnerUid }) => {
 
   return (
     <Container>
-      <h1>パートナー検索</h1>
+      <Title>パートナー検索</Title>
       {isPartnerComponent}
     </Container>
   );
