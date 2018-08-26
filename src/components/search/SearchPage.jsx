@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { lifecycle } from 'recompose';
 import { Redirect } from 'react-router-dom';
 
+import CurrenUserPanel from './CurrentUserPanel';
 import TabContainer from './TabContainer';
 
 const Container = styled.div`
@@ -32,6 +33,7 @@ const SearchPage = ({ partnerUid }) => {
   return (
     <Container>
       <Title>パートナー検索</Title>
+      <CurrenUserPanel />
       {isPartnerComponent}
     </Container>
   );
