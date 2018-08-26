@@ -26,7 +26,7 @@ const mapStateToProps = ({ mypage }) => ({
 
 const mapDispatchToProps = dispatch => ({
   // 一週間分のポイント情報を取得 + 日付けごとのポイントを合計
-  fetchReceivedPointList() {
+  fetchDaylyTotalPoints() {
     const db = firebase.firestore();
     const { currentUser } = firebase.auth();
     const receivedPointRef = db.collection(`users/${currentUser.uid}/point`);

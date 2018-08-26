@@ -74,6 +74,6 @@ PointChart.propTypes = {
 export default lifecycle({
   componentDidMount() {
     // 一週間分のポイント情報を取得 + 日付けごとのポイントを合計
-    this.props.fetchReceivedPointList();
+    this.props.fetchDaylyTotalPoints();
   },
 })(PointChart);
