@@ -7,9 +7,6 @@ import _ from 'lodash';
 const styles = () => ({
   button: {
     flex: 1,
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'flex-end',
   },
 });
 

@@ -36,7 +36,7 @@ class SearchPage extends React.Component {
     return (
       <Container>
         <Tabs
-          value={this.state.value}
+          value={value}
           onChange={this.handleChange}
           indicatorColor="primary"
           textColor="primary"
