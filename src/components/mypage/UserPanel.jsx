@@ -32,12 +32,13 @@ const Point = styled.div`
 
 const UserPanel = ({ basicUserInfo, classes }) => {
   const userName = basicUserInfo.user_name;
+  const photoURL = basicUserInfo.photo_url;
   const { point } = basicUserInfo;
 
   return (
     <Paper className={classes.root} elevation={1}>
       <PanelHeader>
-        <UserAvatar />
+        <UserAvatar photoURL={photoURL} />
         <div>{userName}</div>
       </PanelHeader>
       <Point>

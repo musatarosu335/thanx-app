@@ -10,30 +10,26 @@ const styles = {
     justifyContent: 'center',
     backgroundColor: '#ddd',
     borderRadius: '50%',
-    margin: '0 4px',
-  },
-  avatar: {
-    margin: 10,
+    margin: '0 6px',
   },
   bigAvatar: {
-    width: 30,
-    height: 30,
+    width: 50,
+    height: 50,
   },
 };
 
-const UserAvatar = ({ classes }) => {
-  return (
-    <div className={classes.row}>
-      <Avatar
-        alt="Adelle Charles"
-        src="/assets/icon/default_profile.svg"
-        className={classNames(classes.avatar, classes.bigAvatar)}
-      />
-    </div>
-  );
-};
+const UserAvatar = ({ photoURL, classes }) => (
+  <div className={classes.row}>
+    <Avatar
+      alt="Adelle Charles"
+      src={photoURL || '/assets/icon/default_profile.svg'}
+      className={classNames(classes.bigAvatar)}
+    />
+  </div>
+);
 
 UserAvatar.propTypes = {
+  photoURL: PropTypes.string.isRequired,
   classes: PropTypes.object.isRequired,
 };
 
