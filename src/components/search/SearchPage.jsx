@@ -27,8 +27,7 @@ const SearchPage = ({ partnerUid }) => {
 
   return (
     <Container>
-      <h1>Search Page</h1>
-      <p>説明をここに記述</p>
+      <h1>パートナー検索</h1>
       {isPartnerComponent}
     </Container>
   );

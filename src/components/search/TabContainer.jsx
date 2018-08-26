@@ -42,7 +42,7 @@ class SearchPage extends React.Component {
           textColor="primary"
           centered
         >
-          <Tab label="ペアを見つける" />
+          <Tab label="パートナーを見つける" />
           <Tab label="リクエスト一覧" />
         </Tabs>
         {value === 0 && <SearchTab />}
