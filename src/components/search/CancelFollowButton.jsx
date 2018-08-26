@@ -6,9 +6,6 @@ import Button from '@material-ui/core/Button';
 const styles = () => ({
   button: {
     flex: 1,
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'flex-end',
   },
 });
 

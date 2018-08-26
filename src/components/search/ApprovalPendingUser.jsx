@@ -5,6 +5,7 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
 import CancelFollowButton from '../../containers/search/CancelFollowButton';
+import UserAvatar from '../mypage/UserAvatar';
 
 const styles = theme => ({
   root: theme.mixins.gutters({
@@ -13,13 +14,15 @@ const styles = theme => ({
     marginTop: theme.spacing.unit * 3,
     display: 'flex',
   }),
-  userName: {
+  userInfo: {
     flex: 3,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
     textAlign: 'center',
   },
-  message: {
-    fontSize: '0.7rem',
-    color: '#90949D',
+  userName: {
+    fontSize: '1.1rem',
   },
   button: {
     flex: 2,
@@ -28,10 +31,9 @@ const styles = theme => ({
 
 const ApprovalPendingUser = ({ followingUser, classes }) => (
   <Paper className={classes.root} elevation={4}>
-    <Typography component="div" className={classes.userName}>
-      {followingUser.user_name}
-      <br />
-      <div className={classes.message}>This is message!</div>
+    <Typography component="div" className={classes.userInfo}>
+      <UserAvatar photoURL={followingUser.photo_url} />
+      <div className={classes.userName}>{followingUser.user_name}</div>
     </Typography>
     <CancelFollowButton
       className={classes.button}
