@@ -20,26 +20,30 @@ const styles = {
   },
 };
 
-const Header = (props) => {
-  const { classes } = props;
-  return (
-    <div className={classes.root}>
-      <AppBar position="static">
-        <Toolbar>
-          <div className={classes.flex}>
-            <img src="/assets/logo/logo.png" alt="" style={{ height: 40 }} />
-          </div>
-          <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
-            <MenuIcon />
-          </IconButton>
-        </Toolbar>
-      </AppBar>
-      <Sidebar />
-    </div>
-  );
-};
+const Header = ({ isOpenSidebar, toggleSidebar, classes }) => (
+  <div className={classes.root}>
+    <AppBar position="static">
+      <Toolbar>
+        <div className={classes.flex}>
+          <img src="/assets/logo/logo.png" alt="" style={{ height: 40 }} />
+        </div>
+        <IconButton
+          className={classes.menuButton}
+          color="inherit"
+          aria-label="Menu"
+          onClick={() => toggleSidebar(true)}
+        >
+          <MenuIcon />
+        </IconButton>
+      </Toolbar>
+    </AppBar>
+    <Sidebar isOpenSidebar={isOpenSidebar} toggleSidebar={toggleSidebar} />
+  </div>
+);
 
 Header.propTypes = {
+  isOpenSidebar: PropTypes.bool.isRequired,
+  toggleSidebar: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired,
 };
 

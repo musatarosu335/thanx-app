@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Auth from './Auth';
 import CheckPartner from '../containers/checkPartner';
 import NoMatch from './NoMatch';
-import Header from './common/Header';
+import Header from '../containers/common/Header';
 import MainPage from './main/MainPage';
 import LoginPage from './login/LoginPage';
 import SearchPage from '../containers/search/SearchPage';

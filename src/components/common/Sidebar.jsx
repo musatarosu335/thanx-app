@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -13,47 +14,39 @@ const styles = {
   },
 };
 
-class Sidebar extends React.Component {
-  toggleDrawer(side, open) {
-    return (
-      () => {
-        this.setState({
-          [side]: open,
-        });
-      }
-    );
-  }
-
-  render() {
-    const { classes } = this.props;
-
-    return (
-      <div>
-        <Drawer anchor="right" open={true} onClose={() => this.toggleDrawer('right', false)}>
-          <div
-            className={classes.list}
-            tabIndex={0}
-            role="button"
-            onClick={this.toggleDrawer('right', false)}
-            onKeyDown={this.toggleDrawer('right', false)}
-          >
-            <List component="nav">
-              <ListItem button>
-                <ListItemText primary="ユーザー設定" />
-              </ListItem>
-              <Divider />
-              <ListItem button>
-                <ListItemText primary="ログアウト" />
-              </ListItem>
-            </List>
-          </div>
-        </Drawer>
+const Sidebar = ({ isOpenSidebar, toggleSidebar, classes }) => (
+  <div>
+    <Drawer
+      anchor="right"
+      open={isOpenSidebar}
+      onClose={() => toggleSidebar(false)}
+    >
+      <div
+        className={classes.list}
+        tabIndex={0}
+        role="button"
+        onClick={() => toggleSidebar(false)}
+        onKeyDown={() => toggleSidebar(false)}
+      >
+        <List component="nav">
+          <Link to="/settings">
+            <ListItem button>
+              <ListItemText primary="ユーザー設定" />
+            </ListItem>
+          </Link>
+          <Divider />
+          <ListItem button>
+            <ListItemText primary="ログアウト" />
+          </ListItem>
+        </List>
       </div>
-    );
-  }
-}
+    </Drawer>
+  </div>
+);
 
 Sidebar.propTypes = {
+  isOpenSidebar: PropTypes.bool.isRequired,
+  toggleSidebar: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired,
 };
 
