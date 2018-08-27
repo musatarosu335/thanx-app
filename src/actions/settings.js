@@ -11,3 +11,10 @@ export const toggleSnackbar = closedState => ({
     closedState,
   },
 });
+
+export const toggleChangeSettings = isAllowed => ({
+  type: 'TOGGLE_CHANGE_SETTINGS',
+  payload: {
+    isAllowed,
+  },
+});

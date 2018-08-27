@@ -9,12 +9,22 @@ const styles = theme => ({
   },
 });
 
-const ChangeSettingsButton = ({ userName, updateUserInfo, classes }) => (
+const ChangeSettingsButton = ({
+  userName,
+  allowChangeSettings,
+  updateUserInfo,
+  toggleChangeSettings,
+  classes,
+}) => (
   <Button
     variant="contained"
     color="secondary"
     className={classes.button}
-    onClick={() => updateUserInfo(userName)}
+    disabled={!allowChangeSettings} // 変更可：allowChangeSettings→true, 変更不可：allowChangeSettings→false
+    onClick={() => {
+      updateUserInfo(userName);
+      toggleChangeSettings(false);
+    }}
   >
     変更内容を保存
   </Button>
@@ -22,7 +32,9 @@ const ChangeSettingsButton = ({ userName, updateUserInfo, classes }) => (
 
 ChangeSettingsButton.propTypes = {
   userName: PropTypes.string.isRequired,
+  allowChangeSettings: PropTypes.bool.isRequired,
   updateUserInfo: PropTypes.func.isRequired,
+  toggleChangeSettings: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired,
 };
 
