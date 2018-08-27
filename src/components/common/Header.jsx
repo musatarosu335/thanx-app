@@ -6,6 +6,8 @@ import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 
+import Sidebar from './Sidebar';
+
 const styles = {
   root: {
     flexGrow: 1,
@@ -32,6 +34,7 @@ const Header = (props) => {
           </IconButton>
         </Toolbar>
       </AppBar>
+      <Sidebar />
     </div>
   );
 };
