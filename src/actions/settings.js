@@ -1,8 +1,13 @@
-const changeUserName = userName => ({
+export const changeUserName = userName => ({
   type: 'CHANGE_USER_NAME',
   payload: {
     userName,
   },
 });
 
-export default changeUserName;
+export const toggleSnackbar = closedState => ({
+  type: 'TOGGLE_SNACKBAR',
+  payload: {
+    closedState,
+  },
+});

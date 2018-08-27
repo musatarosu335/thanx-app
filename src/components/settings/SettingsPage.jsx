@@ -1,7 +1,8 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import Snackbar from '@material-ui/core/Snackbar';
 
 import UserNameForm from '../../containers/settings/UserNameForm';
 import ChangeSettingsButton from '../../containers/settings/ChangeSettingsButton';
@@ -19,17 +20,31 @@ const Header = styled.h2`
   font-size: 1.1rem;
 `;
 
-const SettingsPage = () => (
+const SnackbarMessage = styled.span`
+  text-align: center;
+`;
+
+const SettingsPage = ({ closedStateSnackbar, toggleSnackbar }) => (
   <Container>
     <Header>ユーザー設定</Header>
     <Link to="/mypage">マイページ</Link>
     <UserNameForm />
     <ChangeSettingsButton />
+    <Snackbar
+      anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+      open={closedStateSnackbar}
+      onClose={() => toggleSnackbar(false)}
+      ContentProps={{
+        'aria-describedby': 'message-id',
+      }}
+      message={<SnackbarMessage id="message-id">ユーザー設定を変更しました。</SnackbarMessage>}
+    />
   </Container>
 );
 
 SettingsPage.propTypes = {
-  // match: PropTypes.object.isRequired,
+  closedStateSnackbar: PropTypes.bool.isRequired,
+  toggleSnackbar: PropTypes.func.isRequired,
 };
 
 export default SettingsPage;

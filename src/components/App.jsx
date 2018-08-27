@@ -10,7 +10,7 @@ import LoginPage from './login/LoginPage';
 import SearchPage from '../containers/search/SearchPage';
 import MyPage from '../containers/mypage/MyPage';
 import PointsPage from './points/PointsPage';
-import SettingsPage from './settings/SettingsPage';
+import SettingsPage from '../containers/settings/SettingsPage';
 
 import CreateTestUser from './_testUser/SignupPage';
 

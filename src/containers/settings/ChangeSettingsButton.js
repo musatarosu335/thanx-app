@@ -1,12 +1,13 @@
 import { connect } from 'react-redux';
 import firebase from 'firebase/app';
 import ChangeSettingsButton from '../../components/settings/ChangeSettingsButton';
+import { toggleSnackbar } from '../../actions/settings';
 
 const mapStateToProps = ({ settings }) => ({
   userName: settings.userName,
 });
 
-const mapDispatchToProps = () => ({
+const mapDispatchToProps = dispatch => ({
   updateUserInfo(userName) {
     const db = firebase.firestore();
     const { currentUser } = firebase.auth();
@@ -15,8 +16,8 @@ const mapDispatchToProps = () => ({
     currentUserRef.set({
       user_name: userName,
     }, { merge: true }).then(() => {
-      // 上から「変更しました」ってのをだす
-      console.log('update user info');
+      // snackbar表示
+      dispatch(toggleSnackbar(true));
     }).catch((err) => {
       console.log(err); // eslint-disable-line
     });

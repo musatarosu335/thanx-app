@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import firebase from 'firebase/app';
 import UserNameForm from '../../components/settings/UserNameForm';
-import changeUserName from '../../actions/settings';
+import { changeUserName } from '../../actions/settings';
 
 const mapStateToProps = ({ settings }) => ({
   userName: settings.userName,

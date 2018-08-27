@@ -1,5 +1,6 @@
 const initialState = {
   userName: '',
+  closedStateSnackbar: false,
 };
 
 const settingsReducer = (state = initialState, action) => {
@@ -8,6 +9,11 @@ const settingsReducer = (state = initialState, action) => {
       return ({
         ...state,
         userName: action.payload.userName,
+      });
+    case 'TOGGLE_SNACKBAR':
+      return ({
+        ...state,
+        closedStateSnackbar: action.payload.closedState,
       });
     default:
       return state;
