@@ -10,7 +10,7 @@ import Divider from '@material-ui/core/Divider';
 
 const styles = {
   list: {
-    width: 250,
+    width: 200,
   },
 };
 
@@ -29,7 +29,7 @@ const Sidebar = ({ isOpenSidebar, toggleSidebar, classes }) => (
         onKeyDown={() => toggleSidebar(false)}
       >
         <List component="nav">
-          <Link to="/settings">
+          <Link to="/settings" style={{ textDecorationLine: 'none' }}>
             <ListItem button>
               <ListItemText primary="ユーザー設定" />
             </ListItem>
@@ -38,6 +38,12 @@ const Sidebar = ({ isOpenSidebar, toggleSidebar, classes }) => (
           <ListItem button>
             <ListItemText primary="ログアウト" />
           </ListItem>
+          <Divider />
+          <Link to="/landing" style={{ textDecorationLine: 'none' }}>
+            <ListItem button>
+              <ListItemText primary="thanxとは" />
+            </ListItem>
+          </Link>
         </List>
       </div>
     </Drawer>

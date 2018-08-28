@@ -7,6 +7,7 @@ import NoMatch from './NoMatch';
 import Header from '../containers/common/Header';
 import TopPage from './top/TopPage';
 import LoginPage from './login/LoginPage';
+import Landing from './top/Landing';
 import SearchPage from '../containers/search/SearchPage';
 import MyPage from '../containers/mypage/MyPage';
 import PointsPage from './points/PointsPage';
@@ -21,6 +22,7 @@ const App = () => (
       <Switch>
         <Route exact path="/" component={TopPage} />
         <Route exact path="/login" component={LoginPage} />
+        <Route exact path="/landing" component={Landing} />
         <Route exact path="/create-test-user" component={CreateTestUser} />
         <Auth>
           <Switch>

@@ -1,11 +1,47 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
+import firebase from 'firebase/app';
 
-const TopPage = () => (
-  <div>
-    <p>Top Page</p>
-    <Link to="/mypage">MyPage</Link>
-  </div>
-);
+import Landing from './Landing';
 
-export default TopPage;
+export default class TopPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      auth: false,
+      loading: true,
+    };
+  }
+
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        const isLogin = true;
+        this.setState({
+          auth: isLogin,
+          loading: false,
+        });
+      } else {
+        this.setState({
+          loading: false,
+        });
+      }
+    });
+  }
+
+  render() {
+    const { auth, loading } = this.state;
+
+    if (loading) {
+      return <p>Now Loading..</p>;
+    }
+
+    if (!auth) {
+      return <Landing />;
+    }
+
+    return (
+      <Redirect to="mypage" />
+    );
+  }
+}
