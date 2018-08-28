@@ -8,6 +8,8 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Drawer from '@material-ui/core/Drawer';
 import Divider from '@material-ui/core/Divider';
 
+import LogoutButton from './LogoutButton';
+
 const styles = {
   list: {
     width: 200,
@@ -36,7 +38,10 @@ const Sidebar = ({ isOpenSidebar, toggleSidebar, classes }) => (
           </Link>
           <Divider />
           <ListItem button>
-            <ListItemText primary="ログアウト" />
+            <LogoutButton />
+            {/*
+              <ListItemText primary="ログアウト" />
+            */}
           </ListItem>
           <Divider />
           <Link to="/landing" style={{ textDecorationLine: 'none' }}>
