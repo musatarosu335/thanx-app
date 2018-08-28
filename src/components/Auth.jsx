@@ -27,6 +27,10 @@ export default class Auth extends React.Component {
     });
   }
 
+  componentWillUnmount() {
+    this.removeListener();
+  }
+
   render() {
     const { uid, loading } = this.state;
     const { children } = this.props;
