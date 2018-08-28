@@ -24,7 +24,7 @@ const SnackbarMessage = styled.span`
   text-align: center;
 `;
 
-const SettingsPage = ({ closedStateSnackbar, toggleSnackbar }) => (
+const SettingsPage = ({ isOpenSnackbar, toggleSnackbar }) => (
   <Container>
     <Header>ユーザー設定</Header>
     <Link to="/mypage">マイページ</Link>
@@ -32,7 +32,7 @@ const SettingsPage = ({ closedStateSnackbar, toggleSnackbar }) => (
     <ChangeSettingsButton />
     <Snackbar
       anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
-      open={closedStateSnackbar}
+      open={isOpenSnackbar}
       onClose={() => toggleSnackbar(false)}
       ContentProps={{
         'aria-describedby': 'message-id',
@@ -43,7 +43,7 @@ const SettingsPage = ({ closedStateSnackbar, toggleSnackbar }) => (
 );
 
 SettingsPage.propTypes = {
-  closedStateSnackbar: PropTypes.bool.isRequired,
+  isOpenSnackbar: PropTypes.bool.isRequired,
   toggleSnackbar: PropTypes.func.isRequired,
 };
 

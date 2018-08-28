@@ -3,12 +3,12 @@ import SettingsPage from '../../components/settings/SettingsPage';
 import { toggleSnackbar } from '../../actions/settings';
 
 const mapStateToProps = ({ settings }) => ({
-  closedStateSnackbar: settings.closedStateSnackbar,
+  isOpenSnackbar: settings.isOpenSnackbar,
 });
 
 const mapDispatchToProps = dispatch => ({
-  toggleSnackbar(closedState) {
-    dispatch(toggleSnackbar(closedState));
+  toggleSnackbar(isOpen) {
+    dispatch(toggleSnackbar(isOpen));
   },
 });
 

@@ -5,10 +5,10 @@ export const changeUserName = userName => ({
   },
 });
 
-export const toggleSnackbar = closedState => ({
+export const toggleSnackbar = isOpen => ({
   type: 'TOGGLE_SNACKBAR',
   payload: {
-    closedState,
+    isOpen,
   },
 });
 

@@ -1,6 +1,6 @@
 const initialState = {
   userName: '',
-  closedStateSnackbar: false,
+  isOpenSnackbar: false,
   allowChangeSettings: true,
 };
 
@@ -14,7 +14,7 @@ const settingsReducer = (state = initialState, action) => {
     case 'TOGGLE_SNACKBAR':
       return ({
         ...state,
-        closedStateSnackbar: action.payload.closedState,
+        isOpenSnackbar: action.payload.isOpen,
       });
     case 'TOGGLE_CHANGE_SETTINGS':
       return ({
