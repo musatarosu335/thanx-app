@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const MainPage = () => (
+const TopPage = () => (
   <div>
-    <p>Main Page</p>
+    <p>Top Page</p>
     <Link to="/mypage">MyPage</Link>
   </div>
 );
 
-export default MainPage;
+export default TopPage;
