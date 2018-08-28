@@ -2,7 +2,6 @@ import firebase from 'firebase/app';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
-// import styled from 'styled-components';
 
 export default class Auth extends React.Component {
   constructor(props) {
@@ -29,20 +28,23 @@ export default class Auth extends React.Component {
   }
 
   render() {
-    if (this.state.loading) {
+    const { uid, loading } = this.state;
+    const { children } = this.props;
+
+    if (loading) {
       return (
         <p>Now Loading.....</p>
       );
     }
 
-    if (!this.state.uid) {
+    if (!uid) {
       return (
         <Redirect to="/login" />
       );
     }
 
     return (
-      this.props.children
+      children
     );
   }
 }
