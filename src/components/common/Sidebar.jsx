@@ -39,9 +39,6 @@ const Sidebar = ({ isOpenSidebar, toggleSidebar, classes }) => (
           <Divider />
           <ListItem button>
             <LogoutButton />
-            {/*
-              <ListItemText primary="ログアウト" />
-            */}
           </ListItem>
           <Divider />
           <Link to="/landing" style={{ textDecorationLine: 'none' }}>

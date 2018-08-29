@@ -14,7 +14,7 @@ export default class TopPage extends React.Component {
   }
 
   componentDidMount() {
-    firebase.auth().onAuthStateChanged((user) => {
+    this.removeListener = firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         const isLogin = true;
         this.setState({
@@ -27,6 +27,10 @@ export default class TopPage extends React.Component {
         });
       }
     });
+  }
+
+  componentWillUnmount() {
+    this.removeListener();
   }
 
   render() {
