@@ -22,9 +22,6 @@ const mapDispatchToProps = dispatch => ({
         const { partner } = doc.data();
         if (partner) {
           dispatch(setPartnerUid(partner));
-        } else {
-          // 「partner: ''」ならば'no'をセットしてloading画面を解除
-          dispatch(setPartnerUid('no'));
         }
       } else {
         console.log('Not exists...'); // eslint-disable-line no-console
