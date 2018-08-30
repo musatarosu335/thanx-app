@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import { lifecycle } from 'recompose';
 
-const CheckPartner = ({ partnerUid, loading, children }) => {
+const CheckPartner = ({ partnerUid, loading = true, children }) => {
   if (loading) {
     return (
       <p>Now Loading...</p>
@@ -22,6 +22,7 @@ const CheckPartner = ({ partnerUid, loading, children }) => {
 };
 
 CheckPartner.propTypes = {
+  loading: PropTypes.bool,
   children: PropTypes.object.isRequired,
 };
 

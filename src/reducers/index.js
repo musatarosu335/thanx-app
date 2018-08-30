@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import auth from './auth';
 import common from './common';
 import checkPartner from './checkPartner';
 import search from './search';
@@ -6,6 +7,7 @@ import mypage from './mypage';
 import settings from './settings';
 
 const indexReducer = combineReducers({
+  auth,
   common,
   checkPartner,
   search,
@@ -13,4 +15,14 @@ const indexReducer = combineReducers({
   settings,
 });
 
-export default indexReducer;
+// Storeのリセット用
+const rootReducer = (state, action) => {
+  if (action.type === 'CLEAR_ALL_STATE') {
+    // eslint-disable-next-line
+    state = undefined;
+  }
+  return indexReducer(state, action);
+};
+
+
+export default rootReducer;

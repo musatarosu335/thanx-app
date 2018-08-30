@@ -1,12 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
 import Drawer from '@material-ui/core/Drawer';
-import Divider from '@material-ui/core/Divider';
+
+import SidebarContents from './SidebarContents';
+import SidebarAuthContents from './SidebarAuthContents';
 
 const styles = {
   list: {
@@ -14,7 +12,12 @@ const styles = {
   },
 };
 
-const Sidebar = ({ isOpenSidebar, toggleSidebar, classes }) => (
+const Sidebar = ({
+  isAuth,
+  isOpenSidebar,
+  toggleSidebar,
+  classes,
+}) => (
   <div>
     <Drawer
       anchor="right"
@@ -28,29 +31,14 @@ const Sidebar = ({ isOpenSidebar, toggleSidebar, classes }) => (
         onClick={() => toggleSidebar(false)}
         onKeyDown={() => toggleSidebar(false)}
       >
-        <List component="nav">
-          <Link to="/settings" style={{ textDecorationLine: 'none' }}>
-            <ListItem button>
-              <ListItemText primary="ユーザー設定" />
-            </ListItem>
-          </Link>
-          <Divider />
-          <ListItem button>
-            <ListItemText primary="ログアウト" />
-          </ListItem>
-          <Divider />
-          <Link to="/landing" style={{ textDecorationLine: 'none' }}>
-            <ListItem button>
-              <ListItemText primary="thanxとは" />
-            </ListItem>
-          </Link>
-        </List>
+        {isAuth ? <SidebarAuthContents /> : <SidebarContents />}
       </div>
     </Drawer>
   </div>
 );
 
 Sidebar.propTypes = {
+  isAuth: PropTypes.bool.isRequired,
   isOpenSidebar: PropTypes.bool.isRequired,
   toggleSidebar: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired,

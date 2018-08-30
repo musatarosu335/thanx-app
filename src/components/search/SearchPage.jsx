@@ -22,10 +22,8 @@ const Title = styled.h2`
 const SearchPage = ({ partnerUid }) => {
   let isPartnerComponent;
 
-  if (partnerUid === 'no') {
+  if (!partnerUid) {
     isPartnerComponent = <TabContainer />;
-  } else if (!partnerUid) {
-    isPartnerComponent = <p>Now loading...</p>;
   } else {
     isPartnerComponent = <Redirect to="/mypage" />;
   }
