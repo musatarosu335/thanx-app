@@ -8,6 +8,8 @@ import Header from '../containers/common/Header';
 import TopPage from './top/TopPage';
 import LoginPage from './login/LoginPage';
 import Landing from './top/Landing';
+import TermsPage from './terms/TermsPage';
+import PolicyPage from './terms/PolicyPage';
 import SearchPage from '../containers/search/SearchPage';
 import MyPage from '../containers/mypage/MyPage';
 import PointsPage from './points/PointsPage';
@@ -23,6 +25,8 @@ const App = () => (
         <Route exact path="/" component={TopPage} />
         <Route exact path="/login" component={LoginPage} />
         <Route exact path="/landing" component={Landing} />
+        <Route exact path="/terms" component={TermsPage} />
+        <Route exact path="/policy" component={PolicyPage} />
         <Route exact path="/create-test-user" component={CreateTestUser} />
         <Auth>
           <Switch>
