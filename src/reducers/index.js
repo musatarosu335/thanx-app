@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import auth from './auth';
 import common from './common';
 import checkPartner from './checkPartner';
 import search from './search';
@@ -6,6 +7,7 @@ import mypage from './mypage';
 import settings from './settings';
 
 const indexReducer = combineReducers({
+  auth,
   common,
   checkPartner,
   search,

@@ -13,12 +13,16 @@ export default class Auth extends React.Component {
   }
 
   componentDidMount() {
+    const { setAuth } = this.props;
+
     this.removeListener = firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.setState({
           uid: user.uid,
           loading: false,
         });
+        // Header操作のため
+        setAuth(true);
       } else {
         this.setState({
           loading: false,
@@ -54,5 +58,6 @@ export default class Auth extends React.Component {
 }
 
 Auth.propTypes = {
+  setAuth: PropTypes.func.isRequired,
   children: PropTypes.object.isRequired,
 };

@@ -15,12 +15,14 @@ const styles = {
   flex: {
     flex: 1,
   },
-  menuButton: {
-    // hoge
-  },
 };
 
-const Header = ({ isOpenSidebar, toggleSidebar, classes }) => (
+const Header = ({
+  isAuth,
+  isOpenSidebar,
+  toggleSidebar,
+  classes,
+}) => (
   <div className={classes.root}>
     <AppBar position="static">
       <Toolbar>
@@ -28,7 +30,6 @@ const Header = ({ isOpenSidebar, toggleSidebar, classes }) => (
           <img src="/assets/logo/logo.png" alt="" style={{ height: 40 }} />
         </div>
         <IconButton
-          className={classes.menuButton}
           color="inherit"
           aria-label="Menu"
           onClick={() => toggleSidebar(true)}
@@ -37,11 +38,12 @@ const Header = ({ isOpenSidebar, toggleSidebar, classes }) => (
         </IconButton>
       </Toolbar>
     </AppBar>
-    <Sidebar isOpenSidebar={isOpenSidebar} toggleSidebar={toggleSidebar} />
+    <Sidebar isAuth={isAuth} isOpenSidebar={isOpenSidebar} toggleSidebar={toggleSidebar} />
   </div>
 );
 
 Header.propTypes = {
+  isAuth: PropTypes.bool.isRequired,
   isOpenSidebar: PropTypes.bool.isRequired,
   toggleSidebar: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired,

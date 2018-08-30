@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import firebase from 'firebase/app';
 import { Redirect } from 'react-router-dom';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -12,12 +13,16 @@ export default class LogoutButton extends React.Component {
   }
 
   handleClick() {
+    const { setAuth } = this.props;
+
     firebase.auth().signOut()
       .then(() => {
         console.log('Logout'); // eslint-disable-line no-console
         this.setState({
           redirect: true,
         });
+        // Header操作のため
+        setAuth(false);
       })
       .catch((error) => {
         console.log(error.code); // eslint-disable-line no-console
@@ -37,3 +42,7 @@ export default class LogoutButton extends React.Component {
     );
   }
 }
+
+LogoutButton.propTypes = {
+  setAuth: PropTypes.func.isRequired,
+};

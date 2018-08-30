@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import Auth from './Auth';
+import Auth from '../containers/Auth';
 import CheckPartner from '../containers/checkPartner';
 import NoMatch from './NoMatch';
 import Header from '../containers/common/Header';
