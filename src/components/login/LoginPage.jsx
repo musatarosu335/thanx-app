@@ -4,8 +4,6 @@ import 'firebaseui/dist/firebaseui.css';
 import React from 'react';
 import styled from 'styled-components';
 
-import LogoutButton from './LogoutButton';
-
 const Container = styled.div`
   text-align: center;
   margin: 16px;
@@ -29,9 +27,9 @@ export default class LoginPage extends React.Component {
       signInOptions: [
         // Leave the lines as is for the providers you want to offer your users.
         firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-        // firebase.auth.TwitterAuthProvider.PROVIDER_ID,
         firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-        firebase.auth.EmailAuthProvider.PROVIDER_ID,
+        // firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+        // firebase.auth.EmailAuthProvider.PROVIDER_ID,
       ],
       // Terms of service url.
       tosUrl: '<your-tos-url>',
@@ -46,10 +44,9 @@ export default class LoginPage extends React.Component {
     return (
       <Container>
         <h1>ログイン</h1>
-        <p>SNSアカウント、メールアドレスでログインできます。</p>
+        <p>SNSアカウントでログインできます。</p>
         <div id="firebaseui-auth-container" />
         <div id="loader">Loading...</div>
-        <LogoutButton />
       </Container>
     );
   }
