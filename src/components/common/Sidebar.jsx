@@ -8,7 +8,7 @@ import SidebarAuthContents from './SidebarAuthContents';
 
 const styles = {
   list: {
-    width: 200,
+    width: 220,
   },
 };
 

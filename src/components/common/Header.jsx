@@ -27,7 +27,7 @@ const Header = ({
     <AppBar position="static">
       <Toolbar>
         <div className={classes.flex}>
-          <img src="/assets/logo/logo.png" alt="" style={{ height: 40 }} />
+          <img src="/assets/logo/logo.png" alt="" style={{ height: 56 }} />
         </div>
         <IconButton
           color="inherit"
