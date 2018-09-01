@@ -32,6 +32,18 @@ const SidebarAuthContents = () => (
         <ListItemText primary="thanxとは" />
       </ListItem>
     </Link>
+    <Divider />
+    <Link to="/terms" style={{ textDecorationLine: 'none' }}>
+      <ListItem button>
+        <ListItemText primary="利用規約" />
+      </ListItem>
+    </Link>
+    <Divider />
+    <Link to="/policy" style={{ textDecorationLine: 'none' }}>
+      <ListItem button>
+        <ListItemText primary="プライバシーポリシー" />
+      </ListItem>
+    </Link>
   </List>
 );
 
