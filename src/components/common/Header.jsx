@@ -14,6 +14,8 @@ const styles = {
   },
   flex: {
     flex: 1,
+    display: 'flex',
+    alignItems: 'center',
   },
 };
 
