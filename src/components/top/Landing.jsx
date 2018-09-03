@@ -8,6 +8,8 @@ import Button from '@material-ui/core/Button';
 const styles = theme => ({
   button: {
     margin: theme.spacing.unit,
+    width: 240,
+    height: 48,
   },
 });
 
@@ -24,6 +26,13 @@ const TitleArea = styled.div`
   justify-content: center;
   align-items: center;
   padding: 42px 0;
+`;
+
+const SubTitle = styled.div`
+  margin: 8px 0;
+  font-weight: bold;
+  font-size: 0.8rem;
+  color: #EEE;
 `;
 
 const Logo = styled.img`
@@ -56,6 +65,7 @@ const Landing = ({ classes }) => (
   <Container>
     <TitleArea>
       <Logo alt="" src="/assets/logo/logo.png" />
+      <SubTitle>〜日々の感謝を送り合おう〜</SubTitle>
       <Link to="/mypage" style={{ textDecoration: 'none' }}>
         <Button variant="contained" color="secondary" className={classes.button}>
           さっそく始める
