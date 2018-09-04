@@ -17,6 +17,12 @@ const styles = {
 
 const SidebarAuthContents = () => (
   <List component="nav">
+    <Link to="/mypage" style={{ textDecorationLine: 'none' }}>
+      <ListItem button>
+        <ListItemText primary="マイページ" />
+      </ListItem>
+    </Link>
+    <Divider />
     <Link to="/settings" style={{ textDecorationLine: 'none' }}>
       <ListItem button>
         <ListItemText primary="ユーザー設定" />
