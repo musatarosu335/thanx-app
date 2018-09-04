@@ -9,6 +9,14 @@ const Container = styled.div`
   margin: 16px;
 `;
 
+const Title = styled.h2`
+  color: #333;
+`;
+
+const Description = styled.p`
+  color: #666;
+`;
+
 export default class LoginPage extends React.Component {
   componentDidMount() {
     const ui = new firebaseui.auth.AuthUI(firebase.auth());
@@ -43,8 +51,8 @@ export default class LoginPage extends React.Component {
   render() {
     return (
       <Container>
-        <h1>ログイン</h1>
-        <p>SNSアカウントでログインできます。</p>
+        <Title>ログイン</Title>
+        <Description>SNSアカウントでログインできます。</Description>
         <div id="firebaseui-auth-container" />
         <div id="loader">Loading...</div>
       </Container>
