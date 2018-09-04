@@ -26,7 +26,7 @@ const Container = styled.div`
 `;
 
 const SubTitle = styled.div`
-  margin: 8px 0;
+  margin: 4px 0 24px;
   font-weight: bold;
   font-size: 0.8rem;
   color: #EEE;
