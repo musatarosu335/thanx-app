@@ -1,18 +1,9 @@
 import React from 'react';
-import styled from 'styled-components';
 import { Redirect } from 'react-router-dom';
 import firebase from 'firebase/app';
-import CircularProgress from '@material-ui/core/CircularProgress';
 
 import Landing from './Landing';
-
-const SpinerContainer = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 16px 0;
-`;
+import LoadingSpinner from '../common/LoadingSpinner';
 
 export default class TopPage extends React.Component {
   constructor(props) {
@@ -47,11 +38,7 @@ export default class TopPage extends React.Component {
     const { auth, loading } = this.state;
 
     if (loading) {
-      return (
-        <SpinerContainer>
-          <CircularProgress size={50} thickness={5} />
-        </SpinerContainer>
-      );
+      return <LoadingSpinner />;
     }
 
     if (!auth) {
