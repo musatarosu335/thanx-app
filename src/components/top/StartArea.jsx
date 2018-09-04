@@ -6,7 +6,6 @@ import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
 const Container = styled.div`
-  background-color: #FFF;
   display: flex;
   flex-direction: column;
   justify-content: center;
