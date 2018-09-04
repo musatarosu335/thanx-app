@@ -22,7 +22,7 @@ const CharacteristicArea = () => (
   <Container>
     <Title>thanxとは</Title>
     <Description>
-      thanxとは日々の感謝をパートナーと送り合うアプリです。
+      thanxとは日々の感謝をパートナーと送り合うサービスです。
       感謝はポイントとして貯めて、チケットと交換することができます。
       発行されたチケットをお互いが実行し合うことで、
       今以上にパートナーとの絆が深まります。
