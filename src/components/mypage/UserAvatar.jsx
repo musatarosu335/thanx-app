@@ -22,14 +22,14 @@ const UserAvatar = ({ photoURL, classes }) => (
   <div className={classes.row}>
     <Avatar
       alt="Adelle Charles"
-      src={photoURL || '/assets/icon/default_profile.svg'}
+      src={photoURL || '/assets/images/default_profile.svg'}
       className={classNames(classes.bigAvatar)}
     />
   </div>
 );
 
 UserAvatar.defaultProps = {
-  photoURL: '/assets/icon/default_profile.svg',
+  photoURL: '/assets/images/default_profile.svg',
 };
 
 UserAvatar.propTypes = {

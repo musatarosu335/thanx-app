@@ -70,7 +70,7 @@ const HowToUseArea = () => (
         ログインするとパートナー検索ができるようになります。
         パートナーとペアが成立するとマイページへ移動できます。
       </Description>
-      <CoupleIcon src="/assets/icon/couple.svg" />
+      <CoupleIcon src="/assets/images/couple.svg" />
     </Section>
     <Section>
       <SubTitle>2. ポイントを送り合おう</SubTitle>
@@ -78,7 +78,7 @@ const HowToUseArea = () => (
         料理や洗濯など、日々の感謝をポイントとしてパートナーに送りましょう。
         一緒にメッセージも添えてあげると感謝の気持ちがより伝わります。
       </Description>
-      <SendIcon src="/assets/icon/send.png" />
+      <SendIcon src="/assets/images/send.png" />
     </Section>
     <Section>
       <SubTitle>3. チケットと交換しよう</SubTitle>
@@ -86,7 +86,7 @@ const HowToUseArea = () => (
         日々のポイントは貯めることができます。
         貯めたポイントはチケットと交換できます。
       </Description>
-      <TicketIcon src="/assets/icon/ticket.svg" />
+      <TicketIcon src="/assets/images/ticket.svg" />
     </Section>
     <Section>
       <SubTitle>4. チケットを実行しよう</SubTitle>
@@ -95,12 +95,12 @@ const HowToUseArea = () => (
           お互いのチケット状況はマイページから確認できます。
         （チケットは随時追加予定です）
       </Description>
-      <TicketIcon src="/assets/icon/do.svg" />
+      <TicketIcon src="/assets/images/do.svg" />
     </Section>
     <Section>
       <SubTitle>5. ポイントを確認しよう</SubTitle>
       <Description>日々のポイント獲得状況はマイページから確認できます。</Description>
-      <GraphIcon src="/assets/icon/graph.png" />
+      <GraphIcon src="/assets/images/graph.png" />
     </Section>
   </Container>
 );
