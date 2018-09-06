@@ -19,7 +19,10 @@ const Description = styled.p`
 
 export default class LoginPage extends React.Component {
   componentDidMount() {
-    const ui = new firebaseui.auth.AuthUI(firebase.auth());
+    let ui = firebaseui.auth.AuthUI.getInstance();
+    if (!ui) {
+      ui = new firebaseui.auth.AuthUI(firebase.auth());
+    }
     const uiConfig = {
       callbacks: {
         signInSuccessWithAuthResult: (authResult, redirectUrl) => {
