@@ -14,7 +14,7 @@ exports.registerUsers = functions.auth.user().onCreate((user) => {
   return admin.auth().getUser(uid).then((userRecord) => {
     // See the UserRecord reference doc for the contents of userRecord.
     console.log(userRecord.toJSON()); // eslint-disable-line no-console
-    const { email } = userRecord;
+    const email = userRecord.email || '';
     const displayName = userRecord.displayName || 'Anonymous';
     const photoURL = userRecord.photoURL || '/assets/images/default_profile.svg';
 

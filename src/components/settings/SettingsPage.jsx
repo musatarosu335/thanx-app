@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import Snackbar from '@material-ui/core/Snackbar';
 
 import UserNameForm from '../../containers/settings/UserNameForm';
@@ -27,7 +26,6 @@ const SnackbarMessage = styled.span`
 const SettingsPage = ({ isOpenSnackbar, toggleSnackbar }) => (
   <Container>
     <Header>ユーザー設定</Header>
-    <Link to="/mypage">マイページ</Link>
     <UserNameForm />
     <ChangeSettingsButton />
     <Snackbar
