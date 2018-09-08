@@ -15,6 +15,12 @@ const styles = {
 
 const SidebarAuthContents = () => (
   <List component="nav">
+    <Link to="/login" style={{ textDecorationLine: 'none' }}>
+      <ListItem button>
+        <ListItemText primary="ログイン" />
+      </ListItem>
+    </Link>
+    <Divider />
     <Link to="/landing" style={{ textDecorationLine: 'none' }}>
       <ListItem button>
         <ListItemText primary="thanxとは" />
