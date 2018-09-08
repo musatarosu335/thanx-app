@@ -15,7 +15,7 @@ import MyPage from '../containers/mypage/MyPage';
 import PointsPage from './points/PointsPage';
 import SettingsPage from '../containers/settings/SettingsPage';
 
-import CreateTestUser from './_testUser/SignupPage';
+// import CreateTestUser from './_testUser/SignupPage';
 
 const App = () => (
   <Router>
@@ -27,7 +27,9 @@ const App = () => (
         <Route exact path="/landing" component={Landing} />
         <Route exact path="/terms" component={TermsPage} />
         <Route exact path="/policy" component={PolicyPage} />
-        <Route exact path="/create-test-user" component={CreateTestUser} />
+        {/*
+          <Route exact path="/create-test-user" component={CreateTestUser} />
+        */}
         <Auth>
           <Switch>
             <Route exact path="/search" component={SearchPage} />
