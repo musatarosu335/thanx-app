@@ -1,7 +1,13 @@
 import firebase from 'firebase/app';
 import { connect } from 'react-redux';
-import MyPage from '../../components/mypage/MyPage';
-import { fetchUserInfo, fetchPartnerInfo, setTicketList, setReceivedTickets, fetchSentTickets } from '../../actions/mypage';
+import MyPage from '../../components/mypage/Mypage';
+import {
+  fetchUserInfo,
+  fetchPartnerInfo,
+  setTicketList,
+  setReceivedTickets,
+  fetchSentTickets,
+} from '../../actions/mypage';
 
 const mapStateToProps = ({ mypage }) => ({
   userInfo: mypage.userInfo,
@@ -44,6 +50,7 @@ const mapDispatchToProps = dispatch => ({
     const db = firebase.firestore();
     const { currentUser } = firebase.auth();
     const receivedTicketsRef = db.collection(`users/${currentUser.uid}/tickets`);
+    console.log(`receivedTicketsRef: ${receivedTicketsRef}`);
 
     receivedTicketsRef.orderBy('exchange_time', 'desc').onSnapshot((querySnapshot) => {
       const receivedTickets = [];

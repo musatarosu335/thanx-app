@@ -21,11 +21,19 @@ export default class MyPage extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchAndSetUserInfo();
-    this.props.fetchAndSetPartnerInfo();
-    this.props.fetchTicketList();
-    this.props.fetchReceivedTickets();
-    this.props.fetchSentTickets();
+    const {
+      fetchAndSetUserInfo,
+      fetchAndSetPartnerInfo,
+      fetchTicketList,
+      fetchReceivedTickets,
+      fetchSentTickets,
+    } = this.props;
+
+    fetchAndSetUserInfo();
+    fetchAndSetPartnerInfo();
+    fetchTicketList();
+    fetchReceivedTickets();
+    fetchSentTickets();
   }
 
   handleChange(event, value) {
@@ -39,7 +47,7 @@ export default class MyPage extends React.Component {
       <div>
         <Paper style={{ width: '100%' }}>
           <Tabs
-            value={this.state.value}
+            value={value}
             onChange={this.handleChange}
             fullWidth
             indicatorColor="secondary"

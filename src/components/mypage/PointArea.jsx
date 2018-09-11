@@ -14,7 +14,7 @@ const Container = styled.div`
 
 const PointArea = ({ point }) => (
   <Container>
-    {point}pt
+    {`${point}pt`}
   </Container>
 );
 

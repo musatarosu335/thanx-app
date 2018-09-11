@@ -14,9 +14,6 @@ const Container = styled.div`
 
 const TicketInfo = () => (
   <Container>
-    {/*
-      <div>チケット情報</div>
-    */}
     <TicketInfoTab />
   </Container>
 );
