@@ -32,7 +32,7 @@ const DaylyPoint = ({ daylyPoint, classes }) => (
         {daylyPoint.message}
       </Typography>
       <Point>
-        {daylyPoint.point}pt
+        {`${daylyPoint.point}pt`}
       </Point>
     </Paper>
   </Container>
