@@ -27,6 +27,7 @@ export default class MyPage extends React.Component {
       fetchTicketList,
       fetchReceivedTickets,
       fetchSentTickets,
+      fetchDaylyTotalPoints,
     } = this.props;
 
     fetchAndSetUserInfo();
@@ -34,6 +35,7 @@ export default class MyPage extends React.Component {
     fetchTicketList();
     fetchReceivedTickets();
     fetchSentTickets();
+    fetchDaylyTotalPoints();
   }
 
   handleChange(event, value) {
@@ -72,4 +74,5 @@ MyPage.propTypes = {
   fetchTicketList: PropTypes.func.isRequired,
   fetchReceivedTickets: PropTypes.func.isRequired,
   fetchSentTickets: PropTypes.func.isRequired,
+  fetchDaylyTotalPoints: PropTypes.func.isRequired,
 };

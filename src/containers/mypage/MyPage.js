@@ -1,4 +1,5 @@
 import firebase from 'firebase/app';
+import _ from 'lodash';
 import { connect } from 'react-redux';
 import MyPage from '../../components/mypage/Mypage';
 import {
@@ -7,7 +8,31 @@ import {
   setTicketList,
   setReceivedTickets,
   fetchSentTickets,
+  setDaylyTotalPoints,
 } from '../../actions/mypage';
+import { getTargetDate, totalPointPerDay } from '../../func/aggregatePoint';
+
+// 1日のポイント情報をFirestoreから取得
+// { 日付: Array }の形式で返す
+const getDaylyPoints = (targetDate, receivedPointRef) => (
+  new Promise((resolve) => {
+    // const startOfTargetDate = new Date(`${targetDate} 00:00:00`);
+    // const endOfTargetDate = new Date(`${targetDate} 23:59:59`);
+    const startOfTargetDate = new Date(targetDate);
+    const endOfTargetDate = new Date(targetDate);
+    endOfTargetDate.setDate(endOfTargetDate.getDate() + 1);
+
+    receivedPointRef.where('sent_time', '>=', startOfTargetDate).where('sent_time', '<', endOfTargetDate)
+      .get()
+      .then((querySnapshot) => {
+        const daylyPoints = []; // querySnapshotに値がなかった場合のために、空の配列を定義
+        querySnapshot.forEach((doc) => {
+          daylyPoints.push(doc.data());
+        });
+        resolve({ [targetDate]: daylyPoints }); // 日付けをkeyに持つオブジェクトとして返す
+      });
+  })
+);
 
 const mapStateToProps = ({ mypage }) => ({
   userInfo: mypage.userInfo,
@@ -50,7 +75,6 @@ const mapDispatchToProps = dispatch => ({
     const db = firebase.firestore();
     const { currentUser } = firebase.auth();
     const receivedTicketsRef = db.collection(`users/${currentUser.uid}/tickets`);
-    console.log(`receivedTicketsRef: ${receivedTicketsRef}`);
 
     receivedTicketsRef.orderBy('exchange_time', 'desc').onSnapshot((querySnapshot) => {
       const receivedTickets = [];
@@ -67,6 +91,31 @@ const mapDispatchToProps = dispatch => ({
   // 送ったチケット一覧の取得とリッスン
   fetchSentTickets() {
     dispatch(fetchSentTickets());
+  },
+  // 一週間分のポイント情報を取得 + 日付けごとのポイントを合計
+  fetchDaylyTotalPoints() {
+    const db = firebase.firestore();
+    const { currentUser } = firebase.auth();
+    const receivedPointRef = db.collection(`users/${currentUser.uid}/point`);
+    const targetDateList = getTargetDate(); // 一週間分の文字列取得(YYYY-MM-DD)
+    const promises = [];
+
+    targetDateList.forEach((targetDate) => {
+      promises.push(getDaylyPoints(targetDate, receivedPointRef));
+    });
+
+    Promise.all(promises).then((results) => {
+      // [{ 日付: Array }, { 日付: Array }, ...]の形式で返ってくるので、
+      // totalPointPerDay()で加工しやすくするために、
+      // { 日付： Array, 日付: Array, ... }の形式に修正する
+      const weeklyPoints = {};
+      results.forEach((result) => {
+        _.forIn(result, (value, key) => {
+          weeklyPoints[key] = value;
+        });
+      });
+      dispatch(setDaylyTotalPoints(totalPointPerDay(weeklyPoints)));
+    });
   },
 });
 

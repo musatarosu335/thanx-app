@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { lifecycle } from 'recompose';
 import {
   ResponsiveContainer,
   LineChart,
@@ -71,9 +70,4 @@ PointChart.propTypes = {
   daylyTotalPoints: PropTypes.array.isRequired,
 };
 
-export default lifecycle({
-  componentDidMount() {
-    // 一週間分のポイント情報を取得 + 日付けごとのポイントを合計
-    this.props.fetchDaylyTotalPoints();
-  },
-})(PointChart);
+export default PointChart;
