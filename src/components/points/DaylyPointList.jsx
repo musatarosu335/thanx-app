@@ -46,15 +46,18 @@ export default class DaylyPointList extends React.Component {
   }
 
   render() {
-    if (this.state.daylyPointList.length === 0) {
+    const { daylyPointList } = this.state;
+
+    if (daylyPointList.length === 0) {
       return (
         <Alert>ポイントが無いか、日付けを参照できません。</Alert>
       );
     }
+
     return (
       <Container>
         <Grid container spacing={8}>
-          {this.state.daylyPointList.map((daylyPoint, i) => (
+          {daylyPointList.map((daylyPoint, i) => (
             <Grid item xs={12} sm={6} key={i}> {/* eslint-disable-line */}
               <DaylyPoint daylyPoint={daylyPoint} />
             </Grid>

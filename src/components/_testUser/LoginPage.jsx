@@ -36,24 +36,26 @@ export default class LoginPage extends React.Component {
   }
 
   render() {
+    const { email, password } = this.state;
+
     return (
       <Container>
         <h1>テストユーザーログイン</h1>
         <div>メールアドレス</div>
         <Input
           type="text"
-          value={this.state.email}
+          value={email}
           onChange={e => this.handleChangeEmail(e.target.value)}
         />
         <div>パスワード</div>
         <Input
           type="password"
-          value={this.state.password}
+          value={password}
           onChange={e => this.handleChangePassword(e.target.value)}
         />
         <LoginButton
-          email={this.state.email}
-          password={this.state.password}
+          email={email}
+          password={password}
         />
         <LogoutButton />
       </Container>

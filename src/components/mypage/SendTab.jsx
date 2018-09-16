@@ -38,6 +38,8 @@ export default class SendTab extends React.Component {
   }
 
   render() {
+    const { open } = this.state;
+
     return (
       <Container>
         <Header>日頃の感謝をポイントとして送ろう！</Header>
@@ -45,7 +47,7 @@ export default class SendTab extends React.Component {
         <PointSlider />
         <MessageArea />
         <SendPointButton handleClickOpen={() => this.handleClickOpen()} />
-        <SendPointDialog open={this.state.open} handleClose={() => this.handleClose()} />
+        <SendPointDialog open={open} handleClose={() => this.handleClose()} />
       </Container>
     );
   }

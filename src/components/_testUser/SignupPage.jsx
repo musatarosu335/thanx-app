@@ -43,6 +43,8 @@ export default class SignupPage extends React.Component {
   }
 
   render() {
+    const { userName, email, password } = this.state;
+
     return (
       <Container>
         <LoginPage />
@@ -50,25 +52,25 @@ export default class SignupPage extends React.Component {
         <div>ユーザー名</div>
         <Input
           type="text"
-          value={this.state.userName}
+          value={userName}
           onChange={e => this.handleChangeUserName(e.target.value)}
         />
         <div>メールアドレス</div>
         <Input
           type="text"
-          value={this.state.email}
+          value={email}
           onChange={e => this.handleChangeEmail(e.target.value)}
         />
         <div>パスワード</div>
         <Input
           type="password"
-          value={this.state.password}
+          value={password}
           onChange={e => this.handleChangePassword(e.target.value)}
         />
         <SignupButton
-          userName={this.state.userName}
-          email={this.state.email}
-          password={this.state.password}
+          userName={userName}
+          email={email}
+          password={password}
         />
       </Container>
     );

@@ -62,6 +62,7 @@ class Ticket extends React.Component {
 
   render() {
     const { ticket, classes } = this.props;
+    const { openDetailDialog, openExchangeDialog } = this.state;
 
     return (
       <Paper className={classes.root} elevation={1}>
@@ -69,17 +70,17 @@ class Ticket extends React.Component {
           {ticket.ticket_name}
         </PanelHeader>
         <Point>
-          {ticket.point}pt
+          {`${ticket.point}pt`}
         </Point>
         <ExchangeTicketButton ticket={ticket} handleOpen={() => this.handleOpenExchangeDialog()} />
         <TicketDetailsDialog
           ticket={ticket}
-          open={this.state.openDetailDialog}
+          open={openDetailDialog}
           handleClose={() => this.handleCloseDetailDialog()}
         />
         <ExchangeTicketDialog
           ticket={ticket}
-          open={this.state.openExchangeDialog}
+          open={openExchangeDialog}
           handleClose={() => this.handleCloseExchangeDialog()}
         />
       </Paper>
