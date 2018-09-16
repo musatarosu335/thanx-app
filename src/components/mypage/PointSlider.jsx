@@ -6,6 +6,7 @@ import 'rc-slider/assets/index.css';
 
 const Container = styled.div`
   width: 60%;
+  max-width: 400px;
   display: flex;
   justify-content: center;
 `;
