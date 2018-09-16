@@ -1,7 +1,7 @@
 import firebase from 'firebase/app';
 import _ from 'lodash';
 import { connect } from 'react-redux';
-import MyPage from '../../components/mypage/Mypage';
+import MyPage from '../../components/mypage/MyPage';
 import {
   fetchUserInfo,
   fetchPartnerInfo,
