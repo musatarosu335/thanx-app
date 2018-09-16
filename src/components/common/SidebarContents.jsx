@@ -1,11 +1,16 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 import { withStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+`;
 
 const styles = {
   list: {
@@ -15,29 +20,29 @@ const styles = {
 
 const SidebarAuthContents = () => (
   <List component="nav">
-    <Link to="/login" style={{ textDecorationLine: 'none' }}>
+    <StyledLink to="/login">
       <ListItem button>
         <ListItemText primary="ログイン" />
       </ListItem>
-    </Link>
+    </StyledLink>
     <Divider />
-    <Link to="/landing" style={{ textDecorationLine: 'none' }}>
+    <StyledLink to="/landing">
       <ListItem button>
         <ListItemText primary="thanxとは" />
       </ListItem>
-    </Link>
+    </StyledLink>
     <Divider />
-    <Link to="/terms" style={{ textDecorationLine: 'none' }}>
+    <StyledLink to="/terms">
       <ListItem button>
         <ListItemText primary="利用規約" />
       </ListItem>
-    </Link>
+    </StyledLink>
     <Divider />
-    <Link to="/policy" style={{ textDecorationLine: 'none' }}>
+    <StyledLink to="/policy">
       <ListItem button>
         <ListItemText primary="プライバシーポリシー" />
       </ListItem>
-    </Link>
+    </StyledLink>
   </List>
 );
 
