@@ -26,8 +26,10 @@ export default class DaylyPointList extends React.Component {
     const { currentUser } = firebase.auth();
     const receivedPointRef = db.collection(`users/${currentUser.uid}/point`);
     const startOfTargetDate = new Date(date); // urlパラメータから検索日を作成
+    startOfTargetDate.setHours(startOfTargetDate.getHours() - 9); // マイナス９時間して00:00に合わせる
     const endOfTargetDate = new Date(date);
     endOfTargetDate.setDate(endOfTargetDate.getDate() + 1);
+    endOfTargetDate.setHours(endOfTargetDate.getHours() - 9);
     const daylyPointList = [];
 
     receivedPointRef.where('sent_time', '>=', startOfTargetDate).where('sent_time', '<=', endOfTargetDate)

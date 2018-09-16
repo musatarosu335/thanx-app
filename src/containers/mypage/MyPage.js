@@ -19,8 +19,10 @@ const getDaylyPoints = (targetDate, receivedPointRef) => (
     // const startOfTargetDate = new Date(`${targetDate} 00:00:00`);
     // const endOfTargetDate = new Date(`${targetDate} 23:59:59`);
     const startOfTargetDate = new Date(targetDate);
+    startOfTargetDate.setHours(startOfTargetDate.getHours() - 9); // マイナス９時間して00:00に合わせる
     const endOfTargetDate = new Date(targetDate);
     endOfTargetDate.setDate(endOfTargetDate.getDate() + 1);
+    endOfTargetDate.setHours(endOfTargetDate.getHours() - 9);
 
     receivedPointRef.where('sent_time', '>=', startOfTargetDate).where('sent_time', '<', endOfTargetDate)
       .get()
