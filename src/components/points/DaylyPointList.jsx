@@ -32,7 +32,7 @@ export default class DaylyPointList extends React.Component {
     endOfTargetDate.setHours(endOfTargetDate.getHours() - 9);
     const daylyPointList = [];
 
-    receivedPointRef.where('sent_time', '>=', startOfTargetDate).where('sent_time', '<=', endOfTargetDate)
+    receivedPointRef.where('sent_time', '>=', startOfTargetDate).where('sent_time', '<', endOfTargetDate)
       .get()
       .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
