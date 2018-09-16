@@ -47,7 +47,7 @@ export default class MyPage extends React.Component {
 
     return (
       <div>
-        <Paper style={{ width: '100%' }}>
+        <Paper style={{ width: '100%', borderRadius: 0 }}>
           <Tabs
             value={value}
             onChange={this.handleChange}
