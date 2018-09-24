@@ -14,29 +14,26 @@ const styles = theme => ({
 });
 
 
-class SendPointButton extends React.Component {
-  handleClick() {
-    this.props.handleClickOpen();
-    this.props.sendPointAndMessage();
-  }
-
-  render() {
-    const { point, classes } = this.props;
-
-    return (
-      <Button
-        variant="contained"
-        color="primary"
-        disabled={point === 0}
-        className={classes.button}
-        onClick={() => this.handleClick()}
-      >
-        ポイントを送る
-        <SendIcon className={classes.rightIcon} />
-      </Button>
-    );
-  }
-}
+const SendPointButton = ({
+  point,
+  sendPointAndMessage,
+  handleClickOpen,
+  classes,
+}) => (
+  <Button
+    variant="contained"
+    color="primary"
+    disabled={point === 0}
+    className={classes.button}
+    onClick={() => {
+      handleClickOpen();
+      sendPointAndMessage();
+    }}
+  >
+    ポイントを送る
+    <SendIcon className={classes.rightIcon} />
+  </Button>
+);
 
 SendPointButton.propTypes = {
   point: PropTypes.number.isRequired,

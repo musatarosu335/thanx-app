@@ -13,10 +13,10 @@ const styles = theme => ({
 });
 
 const NormalButton = (props) => {
-  const { classes } = props;
+  const { classes, children } = props;
   return (
     <Button variant="contained" color="primary" className={classes.button}>
-      {props.children}
+      {children}
     </Button>
   );
 };
