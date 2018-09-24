@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import Alert from '../common/Alert';
 import ReceivedTicket from './ReceivedTicket';
+import ExecuteTicketDialog from './ExecuteTicketDialog';
 
 /*
 Gridレイアウトにした方が良さそう
@@ -20,24 +21,56 @@ const Container = styled.div`
   flex-direction: column;
 `;
 
-const ReceivedTicketList = ({ receivedTickets }) => {
-  if (receivedTickets.length === 0) {
-    return (
-      <Alert>現在受け取っているチケットはありません。</Alert>
-    );
+
+class ReceivedTicketList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      openDialog: false,
+    };
   }
 
-  return (
-    <Container>
-      {receivedTickets.map((receivedTicket, i) => (
-        <ReceivedTicket
-          key={i} // eslint-disable-line
-          receivedTicket={receivedTicket}
+  handleOpenDialog() {
+    this.setState({ openDialog: true });
+  }
+
+  handleCloseDialog() {
+    this.setState({ openDialog: false });
+  }
+
+  render() {
+    const { receivedTickets } = this.props;
+    const { openDialog } = this.state;
+
+    if (receivedTickets.length === 0) {
+      return (
+        <div>
+          <Alert>現在受け取っているチケットはありません。</Alert>
+          <ExecuteTicketDialog
+            open={openDialog}
+            handleClose={() => this.handleCloseDialog()}
+          />
+        </div>
+      );
+    }
+
+    return (
+      <Container>
+        {receivedTickets.map((receivedTicket, i) => (
+          <ReceivedTicket
+            key={i} // eslint-disable-line
+            receivedTicket={receivedTicket}
+            handleOpenDialog={() => this.handleOpenDialog()}
+          />
+        ))}
+        <ExecuteTicketDialog
+          open={openDialog}
+          handleClose={() => this.handleCloseDialog()}
         />
-      ))}
-    </Container>
-  );
-};
+      </Container>
+    );
+  }
+}
 
 ReceivedTicketList.propTypes = {
   receivedTickets: PropTypes.array.isRequired,

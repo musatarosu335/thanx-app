@@ -9,12 +9,20 @@ const styles = theme => ({
   },
 });
 
-const ExecuteButton = ({ documentId, executeTicket, classes }) => (
+const ExecuteButton = ({
+  documentId,
+  executeTicket,
+  handleOpenDialog,
+  classes,
+}) => (
   <Button
     variant="contained"
     color="primary"
     className={classes.button}
-    onClick={() => executeTicket(documentId)}
+    onClick={() => {
+      executeTicket(documentId);
+      handleOpenDialog();
+    }}
   >
     実行
   </Button>
@@ -23,6 +31,7 @@ const ExecuteButton = ({ documentId, executeTicket, classes }) => (
 ExecuteButton.propTypes = {
   documentId: PropTypes.string.isRequired,
   executeTicket: PropTypes.func.isRequired,
+  handleOpenDialog: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired,
 };
 

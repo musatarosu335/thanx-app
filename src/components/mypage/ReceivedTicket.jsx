@@ -43,7 +43,7 @@ const TicketDate = styled.div`
   color: #999999;
 `;
 
-const ReceivedTicket = ({ receivedTicket, classes }) => (
+const ReceivedTicket = ({ receivedTicket, handleOpenDialog, classes }) => (
   <Paper className={classes.root} elevation={1}>
     <TicketLeft>
       <TicketName>
@@ -54,13 +54,17 @@ const ReceivedTicket = ({ receivedTicket, classes }) => (
       </TicketDate>
     </TicketLeft>
     <TicketRight>
-      <ExecuteButton documentId={receivedTicket.document_id} />
+      <ExecuteButton
+        documentId={receivedTicket.document_id}
+        handleOpenDialog={() => handleOpenDialog()}
+      />
     </TicketRight>
   </Paper>
 );
 
 ReceivedTicket.propTypes = {
   receivedTicket: PropTypes.object.isRequired,
+  handleOpenDialog: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired,
 };
 
