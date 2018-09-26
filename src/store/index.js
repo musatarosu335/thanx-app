@@ -14,8 +14,10 @@ if (process.env.NODE_ENV !== 'production') {
 // loggerの後にthunkをpush
 middlewares.push(thunk);
 
-// eslint-disable-next-line
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+// Redux DevToolsの設定
+const composeEnhancers = process.env.NODE_ENV === 'production'
+  ? compose
+  : window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // eslint-disable-line
 
 const store = createStore(
   rootReducer,
