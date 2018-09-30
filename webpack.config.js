@@ -7,10 +7,7 @@ module.exports = (env, argv) => {
   const IS_DEVELOPMENT = argv.mode === 'development';
 
   return ({
-    entry: [
-      'babel-polyfill',
-      './src/index.jsx',
-    ],
+    entry: ['./src/index.jsx'],
     output: {
       path: publicDir,
       publicPath: '/',
@@ -24,8 +21,7 @@ module.exports = (env, argv) => {
             loader: 'babel-loader',
             options: {
               presets: [
-                ['env', { modules: false }],
-                'react',
+                ['@babel/preset-env', { modules: false }], '@babel/preset-react',
               ],
             },
           }],
