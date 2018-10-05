@@ -90,6 +90,16 @@ const PolicyPage = () => (
       <List>本ポリシーの内容は，ユーザーに通知することなく，変更することができるものとします。</List>
       <List>運営者が別途定める場合を除いて，変更後のプライバシーポリシーは，本ウェブサイトに掲載したときから効力を生じるものとします。</List>
     </Ol>
+    <h3>第7条（お問い合わせ窓口）</h3>
+    <p>
+      <a
+        href="https://twitter.com/musatarosu"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        お問い合わせ窓口
+      </a>
+    </p>
   </Container>
 );
 
